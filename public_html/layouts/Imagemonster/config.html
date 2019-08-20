@@ -1,0 +1,69 @@
+
+
+<block cond="!($layout_info->top_backcolor)">{@$layout_info->top_backcolor = "#222"}</block>
+<block cond="!($layout_info->layout_acolor_set)">{@$layout_info->layout_acolor_set = "#FC6E6E"}</block>
+<block cond="!($layout_info->menu1_tcolor)">{@$layout_info->menu1_tcolor = "#000"}</block>
+<block cond="!($layout_info->menu1_bcolor)">{@$layout_info->menu1_bcolor = "#000"}</block>
+<block cond="!($layout_info->menu1_acolor)">{@$layout_info->menu1_acolor = "#fff"}</block>
+<block cond="!($layout_info->menu2_acolor)">{@$layout_info->menu2_acolor = "red"}</block>
+<block cond="!($layout_info->menusub_acolor)">{@$layout_info->menusub_acolor = "#0fccd8"}</block>
+<block cond="!($layout_info->foot_uplinecolor)">{@$layout_info->foot_uplinecolor = "#555555"}</block>
+<block cond="!($layout_info->foot_tcolor)">{@$layout_info->foot_tcolor = "#fff"}</block>
+<block cond="!($layout_info->foot_bcolor)">{@$layout_info->foot_bcolor = "#fff"}</block>
+<block cond="!($layout_info->foot_linecolor)">{@$layout_info->foot_linecolor = "#ddd"}</block>
+<block cond="!($layout_info->sidetitle_bcolor)">{@$layout_info->sidetitle_bcolor = "#F54949"}</block>
+<block cond="!($layout_info->sidetitle_tcolor)">{@$layout_info->sidetitle_tcolor = "#fff"}</block>
+
+
+
+<style type="text/css">
+#wrap .top{background-color:{$layout_info->top_backcolor}}
+.gnb li.m1 a.m1_a{color:{$layout_info->menu1_tcolor}}
+.gnb li.m1 a.m1_a:hover{	color:{$layout_info->menu1_acolor}; background-color:{$layout_info->menu1_bcolor} }
+.side_lnb a:hover, .side_lnb li.on a:hover{ color:{$layout_info->layout_acolor_set}; font-weight:bold}
+
+<!--@if($layout_info->menu1_bcolor=='#fff' || $layout_info->menu1_bcolor=='#ffffff' )-->
+#gnb .lnb ul{background-color:#f3f3f3}
+<!--@else-->
+#gnb .lnb ul{background-color:{$layout_info->menu1_bcolor}}
+<!--@end-->
+
+.gnb .lnb  a{color:{$layout_info->menu1_acolor};}
+.gnb .lnb  a:hover{color:{$layout_info->menu2_acolor};}
+
+
+<!--@if($layout_info->contentwidtop)-->
+.contentwidtop
+{	width:{$layout_info->contentwidtop_width}px;
+	<!--@if($layout_info->contentwidtop_b=="yes")-->
+	border-top:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+	<!--@end-->
+	margin:20px  auto;
+	padding:0 5px;
+}
+<!--@end-->
+<!--@if( $layout_info->contentwidbot)-->
+.contentwidbot
+{	width:{$layout_info->contentwidbot_width}px;
+	<!--@if($layout_info->contentwidbot_b=="yes")-->
+	border-top:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+	<!--@end-->
+	margin:20px auto;
+	padding:0 5px;
+}
+<!--@end-->
+.main .sub_lnb  a:hover{color:{$layout_info->menusub_acolor}}
+/*.side_menubar .side_1menu{color:{$layout_info->sidetitle_tcolor}; background-color:{$layout_info->sidetitle_bcolor}}*/
+.footer	a,.footer .footer_sitemap p, .footer .foot_menu_w p, .vbar{color:{$layout_info->foot_tcolor};} 
+
+.footer{background-color:{$layout_info->foot_bcolor};}
+.footer .foot_menu_w_wrap{border-bottom:solid 1px {$layout_info->foot_linecolor}}
+<!--@if($layout_info->top_ad)-->
+.top_ad{background-color:{$layout_info->top_ad_color}}
+<!--@end-->
+
+
+</style>
+

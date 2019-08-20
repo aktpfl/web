@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin version="0.2">
+	<title xml:lang="ko">PhotoGalleryA 회원모듈스킨</title>
+	
+	<author url="http://eyepress.co.kr">
+		<name xml:lang="ko">PhotoGalleryA</name>
+		<description xml:lang="ko">PhotoGalleryA 회원모듈스킨입니다.</description>
+		<version>1.0</version>
+		<date>2011-01-07</date>
+		<link>http://eyepress.co.kr</link>
+	</author>
+	
+	<colorset>
+        <color name="black">
+            <title xml:lang="ko">기본</title>
+        </color>
+    </colorset>
+</skin>

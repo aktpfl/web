@@ -1,0 +1,141 @@
+<script type="text/javascript">
+jQuery(function($){
+	var cssUrl;
+	responseCss();
+	
+	
+	$(window).resize(function(){
+		responseCss();
+	});
+
+	function responseCss(){
+		swidth = parseInt($(this).width());
+		
+		
+		if (swidth>=769 ) {//1199
+
+			<!--@if($layout_info->layoutset=='sub1')-->
+				$('#columnRight').css('width','100%').css('float','none');
+			<!--@elseif($layout_info->layoutset=='sub2')-->
+				$('#columnLeft').css('width','17%').css('display','block').css('float','left');
+				$('#columnRight').css('width','79%').css('float','right');
+			<!--@end-->
+		}else
+		{
+			$('#columnLeft').css('width','0').css('display','none');
+			$('#columnRight').css('width','100%').css('float','none');
+		}
+	}
+	
+});
+</script>
+
+{@ $menuset=0}
+<div id="columnLeft" cond="$layout_info->layoutset=='sub2'">
+	<div class="side_menubar">
+
+    <block loop="$main_menu->list=> $key,$val">
+    <!--@if($val['selected'] )--> 
+        <div style="margin-bottom:70px;">
+        <a  href="{$menu_1st['href']}" target="_blank" class="side_1menu">{$menu_1st['link']}</a>
+        <ul class="side_lnb" cond="$menu_1st['list']">
+            {@ $class_on=0}
+             
+            <li loop="$menu_1st['list']=>$key2,$val2"><!--@if($val2['selected'] )-->{@$class_on=1}<!--@end-->
+                <block loop="$val2['list']=>$key3,$val3" ><!--@if($val3['selected'] )-->  {@$class_on=0}<!--@end--></block>
+        
+             <a href="{$val2['href']}" <!--@if($class_on)-->class="on" <!--@elseif($val2['selected'])--> class="on_font" <!--@end--> target="_blank"|cond="$val2['open_window']=='Y'" ><span class="bull">&bull;</span>{$val2['link']}</a>
+                <ul cond="$val2['list']">
+                   <li loop="$val2['list']=>$key3,$val3" ><a href="{$val3['href']}" <!--@if($val3['selected'] )-->class="on"<!--@end--> target="_blank"|cond="$val3['open_window']=='Y'" ><span class="bull">&bull;</span>{$val3['link']}</a></li>
+                </ul> 
+                {@$class_on=0}
+            </li>
+       </ul>
+       </div>
+	  	{@ $menuset=1}
+    <!--@end-->
+    </block>  
+    
+    
+    <block loop="$quick_menu1->list=> $key,$val" cond="($layout_info->layoutset=='sub2')&&($menuset!=1)">
+    <!--@if($val['selected'] )-->
+        <block cond="!$layout_info->foot_title1">{@$layout_info->foot_title1="Customer"}</block>
+        
+        <div style="margin-bottom:70px;">
+        <a  class="side_1menu">{$layout_info->foot_title1}</a>
+        <ul class="side_lnb" cond="$quick_menu1->list">
+        {@ $class_on=0}
+         
+        <li loop="$quick_menu1->list=>$key,$val"><!--@if($val['selected'] )-->{@$class_on=1}<!--@end-->
+         <a href="{$val['href']}" <!--@if($class_on)-->class="on"<!--@end--> target="_blank"|cond="$val['open_window']=='Y'" >
+            <span class="bull">&bull;</span>{$val['link']}</a>
+            {@ $class_on=0}
+        </li>
+        </ul>
+        
+        </div>
+		{@ $menuset=1}
+	<!--@end-->
+    </block>  
+    
+    
+    <block loop="$quick_menu2->list=> $key,$val" cond="($layout_info->layoutset=='sub2')&&($menuset!=1)">
+    <!--@if($val['selected'] )--> 
+        <block cond="!$layout_info->foot_title1">{@$layout_info->foot_title2="QuickMenu"}</block>
+        
+        <div style="margin-bottom:70px;">
+        <a  class="side_1menu">{$layout_info->foot_title2}</a>
+        <ul class="side_lnb" cond="$quick_menu2->list">
+            {@ $class_on=0}
+             
+            <li loop="$quick_menu2->list=>$key,$val"><!--@if($val['selected'] )-->{@$class_on=1}<!--@end-->
+             <a href="{$val['href']}" <!--@if($class_on)-->class="on"<!--@end--> target="_blank"|cond="$val['open_window']=='Y'" >
+                <span class="bull">&bull;</span>{$val['link']}</a>
+                {@ $class_on=0}
+            </li>
+        </ul>
+        </div>
+
+	    {@ $menuset=1}
+    <!--@end-->
+    </block>  
+    
+    
+    <block loop="$foot_menu->list=> $key,$val" cond="($layout_info->layoutset=='sub2')&&($menuset!=1)">
+    <!--@if($val['selected'] )--> 
+        <block cond="!$layout_info->foot_title1">{@$layout_info->footmenu_title="footer 메뉴"}</block> 
+        
+        <div style="margin-bottom:70px;">
+        <a  class="side_1menu">{$layout_info->footmenu_title}</a>
+        <ul class="side_lnb" cond="$foot_menu->list">
+            {@ $class_on=0}
+             
+            <li loop="$foot_menu->list=>$key,$val"><!--@if($val['selected'] )-->{@$class_on=1}<!--@end-->
+             <a href="{$val['href']}" <!--@if($class_on)-->class="on"<!--@end--> target="_blank"|cond="$val['open_window']=='Y'" >
+                <span class="bull">&bull;</span>{$val['link']}</a>
+                {@ $class_on=0}
+            </li>
+        </ul>
+        
+        </div>
+	    {@ $menuset=1}
+    <!--@end-->
+    </block>  
+    
+       	<!--사이드 위젯만들기0-->
+	<!--#include("side_widget.html")-->
+	</div><!-- side_menubar-->
+</div><!-- columnleft-->
+<div id="columnRight">
+    <div class="content_banner" cond="$layout_info->contentbantop" >
+         <a href="{$layout_info->contentbantop_url}"><img src="{$layout_info->contentbantop}" alt="{$layout_info->contentbantop_alt}"  /></a>
+    </div>
+    <div class="contentwidtop" cond="$layout_info->contentwidtop">{$layout_info->contentwidtop}</div>
+    {$content}
+    <div class="contentwidbot" cond="$layout_info->contentwidbot">{$layout_info->contentwidbot}</div>
+    <div class="content_banner" cond="$layout_info->contentbanbot" >
+         <a href="{$layout_info->contentbanbot_url}"><img src="{$layout_info->contentbanbot}" alt="{$layout_info->contentbanbot_alt}" /></a>
+    </div>
+
+</div><!--end of columnRight-->
+

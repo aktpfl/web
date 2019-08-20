@@ -1,0 +1,30 @@
+
+@charset "utf-8";
+
+.widgetContainer{
+	font-family:"Trebuchet MS","맑은고딕", 나눔고딕, 'Malgun Gothic',NanumGothic, Dotum, 돋움,sans-serif;
+	*font-family:"맑은고딕", 나눔고딕,'Malgun Gothic', NanumGothic, Dotum, 돋움,"Trebuchet MS",sans-serif;
+	width:100%;
+	padding:0px;
+	margin:0px;
+	border:0;
+	display:block;
+	position:relative;
+}
+
+.widgetContainer a{ text-decoration:none; color:#333}
+.widgetContainer img{ border:0;}
+
+.widgetGalleryA{
+	position:relative;
+	margin:0;
+	font-size:12px;
+*zoom:1; 	_margin-right:-100%;
+	padding:0;
+	padding-bottom:1px;
+	
+/*border:solid 1px #ddd;*/
+	
+}
+.widgetGalleryA:after{ content:""; display:block; clear:both;}
+

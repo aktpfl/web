@@ -1,0 +1,57 @@
+<!--%import("js/menu.js")-->
+<!--%import("css/default.css")-->
+
+<div id="wrapPage" class="">
+	<div id="wrapCenter" class="center">
+
+		<div id="head" class="">
+			<div class="logoframe fl">
+				<a href="{getUrl('', 'mid', $layout_info->home_module)}"><img alt="logo" class="logo iePngFix" src="{$layout_info->logo_image}" /></a>
+			</div>
+			<div class="loginframe fr">
+				<img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="gallery_layout_login" colorset="default" />
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 96 101 60 98 75 108 -->
+		<div id="menu" class="iePngFix fl"><!-- 메인 1차메뉴 -->{@$mi1 = 1}
+			<!--@foreach($main_menu->list as $key1 => $val1)--><!--@if($val1['link'])-->
+				<!--@if($val1['selected'])-->{@ $sub_menu1 = $val1; $main_menu_text = $val1['text']; }<!--@end-->
+			<div class="item item{$mi1}<!--@if($val1['selected'])--> item-sel<!--@end-->"><div class="itemButtonA" onclick="location.href='{$val1['href']}';"><div class="itemButton<!--@if($mi1 == 1)--> itemButton1st<!--@end--> ">{$val1['text']}</div></div>
+				<!--@if($val1['list'])-->
+				<div class="sub1Container">
+					<!--@foreach($val1['list'] as $key2 => $val2)-->
+					<div class="sub1Item<!--@if($val2['selected'])--> sub1Item-sel<!--@end-->"<!--@if($val2['open_window']=='Y')--> onclick="window.open('{$val2['url']}');"<!--@else--> onclick="location.href='{$val2['href']}';"<!--@end-->>{$val2['text']}</div>
+					<!--@end-->
+				</div>
+				<!--@end-->
+				<span class="itemNumber">{$mi1}</span>
+			</div>{@$mi1++}
+			<!--@end--><!--@end-->
+			<div class="fe"></div>
+		</div>
+        <form action="{getUrl()}" method="post" id="isSearch">
+			<div id="searching" class="iePngFix fr ">
+				<!--@if($vid)-->
+				<input type="hidden" name="vid" value="{$vid}" />
+				<!--@end-->
+				<input type="hidden" name="mid" value="{$mid}" />
+				<input type="hidden" name="act" value="IS" />
+				<input type="hidden" name="search_target" value="title_content" />
+				<input name="is_keyword" type="text" class="searchingInput" />
+				<input type="image" src="img/searching.png" class="searchingButton iePngFix" />
+				<div class="clear"></div>
+			</div>
+        </form>
+		<div class="clear"></div>
+
+		<div class="content">
+			{$content}
+		</div>
+		
+		<div class="clear"></div>
+		<div id="bottom" class="noBar">
+			<div class="title">{$layout_info->copyright}</div>
+		</div>
+	</div>
+</div>

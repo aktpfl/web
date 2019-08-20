@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko">Photo Gallery A_Free</title>
+	<description xml:lang="ko">photoGalleryA Free형 레이아웃입니다.</description>
+	<version>1.0</version>
+	<date>2011-01-13</date>
+	<link>http://eyepress.co.kr</link>
+	<author link="http://eyepress.co.kr/">
+		<name xml:lang="ko">eyepress</name>
+	</author>
+	
+	<extra_vars>
+		<var name="logo_image" type="image">
+			<title xml:lang="ko">로고이미지</title>
+			<description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요.</description>
+		</var>
+		<var name="index_url" type="text">
+			<title xml:lang="ko">홈 페이지 URL</title>
+			<description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+		</var>
+		<var name="contact_url" type="text">
+			<title xml:lang="ko">contact URL</title>
+			<description xml:lang="ko">상단 우측 메뉴인 contact 버튼의 URL을 입력해 주세요.</description>
+		</var>
+		<var name="copyright_image" type="image">
+			<title xml:lang="ko">카피라이트 이미지</title>
+			<description xml:lang="ko">푸터 카피라이트 부분에 들어갈 이미지를 넣어주세요.</description>
+		</var>
+	</extra_vars>
+	
+	<menus>
+		<menu name="main_menu" maxdepth="3" default="true">
+			<title xml:lang="ko">상단 메뉴</title>
+		</menu>
+	</menus>
+</layout>

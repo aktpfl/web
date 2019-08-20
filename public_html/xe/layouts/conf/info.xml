@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="1.0">
+    <title xml:lang="ko">XE ONYA 레이아웃</title>
+    <title xml:lang="jp">XE ONYA layout</title>
+    <title xml:lang="en">XE ONYA layout</title>
+	<title xml:lang="ge">XE ONYA layout</title>
+	<title xml:lang="ru">XE ONYA layout</title>
+    <title xml:lang="es">XE ONYA layout</title>
+    <title xml:lang="zh-CN">XE ONYA layout</title>
+    <title xml:lang="zh-TW">XE ONYA layout</title>
+    <title xml:lang="vi">XE ONYA layout</title>
+    <author email_address="zero@xpressengine.com" link="http://blog.nzeo.com">
+        <name xml:lang="ko">zero</name>
+        <name xml:lang="jp">zero</name>
+        <name xml:lang="en">zero</name>
+        <name xml:lang="ge">zero</name>
+        <name xml:lang="ru">zero</name>
+        <name xml:lang="es">zero</name>
+        <name xml:lang="zh-CN">zero</name>
+        <name xml:lang="zh-TW">zero</name>
+	   <name xml:lang="vi">zero</name>
+    </author>
+    <description xml:lang="ko">
+         제로보드XE ONYA 레이아웃스킨 1.0 버젼입니다.
+         레이아웃 제작 : zero
+         퍼블리싱 : 정찬명
+         디자인 : 궁뎅씨+붕붕씨 (2010.01.20)
+    </description>
+    <description xml:lang="jp">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="en">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="ge">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="ru">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="es">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="zh-CN">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <description xml:lang="zh-TW">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+	<description xml:lang="vi">
+         This layout is the Zeroboard XE ONYA layout skin ver 1.0.
+         Design :  Goongdengc + Boongboongc (2010.01.20)
+         HTML/CSS : Chan-Myung Jeong
+         Layout producer : zero
+    </description>
+    <version>1.0</version>
+    <date>2010-01-20</date>
+    <link>http://www.onyabyul.net</link>
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <title xml:lang="jp">カラーセット</title>
+            <title xml:lang="zh-CN">颜色</title>
+            <title xml:lang="zh-TW">顏色設定</title>
+            <title xml:lang="en">Colorset</title>
+            <title xml:lang="ge">Colorset</title>
+            <title xml:lang="ru">Colorset</title>
+            <title xml:lang="es">Set de colores</title>
+	        <title xml:lang="vi">Màu sắc</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <description xml:lang="jp">希望するカラーセットを選択して下さい。</description>
+            <description xml:lang="zh-CN">请选择颜色。</description>
+            <description xml:lang="zh-TW">請選擇顏色。</description>
+            <description xml:lang="en">Please select a colorset you want.</description>
+            <description xml:lang="ge">Bitte wählen Sie ein colorset Sie wollen.</description>
+            <description xml:lang="ru">Выберите colorset хотите.</description>
+            <description xml:lang="es">Seleccione set de colores que desea.</description>
+	       <description xml:lang="vi">Hãy chọn màu sắc bạn muốn.</description>
+            <options name="default">
+                <title xml:lang="ko">default</title>
+                <title xml:lang="jp">default</title>
+                <title xml:lang="en">default</title>
+				<title xml:lang="ge">default</title>
+				<title xml:lang="ru">default</title>
+                <title xml:lang="es">default</title>
+                <title xml:lang="zh-CN">default</title>
+				<title xml:lang="zh-TW">default</title>
+	         	<title xml:lang="vi">default</title>
+                <value>default</value>
+            </options>
+            <options name="gray">
+                <title xml:lang="ko">gray</title>
+                <title xml:lang="jp">gray</title>
+                <title xml:lang="en">gray</title>
+				<title xml:lang="ge">gray</title>
+				<title xml:lang="ru">gray</title>
+                <title xml:lang="es">gray</title>
+                <title xml:lang="zh-CN">gray</title>
+        		<title xml:lang="zh-TW">gray</title>
+	         	<title xml:lang="vi">gray</title>
+                <value>gray</value>
+            </options>
+        </var>
+        <var name="content_width" type="text">
+            <title xml:lang="ko">컨텐츠 가로폭</title>
+            <title xml:lang="jp">Width of Contents</title>
+            <title xml:lang="zh-CN">Width of Contents</title>
+            <title xml:lang="en">Width of Contents</title>
+			<title xml:lang="es">Width of Contents</title>
+			<title xml:lang="ru">Width of Contents</title>
+     		<title xml:lang="zh-TW">Width of Contents</title>
+	       	<title xml:lang="vi">Width of Contents</title>
+            <description xml:lang="ko">컨텐츠영역의 가로폭을 직접 지정할 수 있습니다. (기본값:900px)</description>
+            <description xml:lang="jp">You can set width of contents.(default:900px)</description>
+            <description xml:lang="zh-CN">You can set width of contents.(default:900px)</description>
+            <description xml:lang="en">You can set width of contents.(default:900px)</description>
+			<description xml:lang="es">You can set width of contents.(default:900px)</description>
+			<description xml:lang="ru">You can set width of contents.(default:900px)</description>
+			<description xml:lang="zh-TW">You can set width of contents.(default:900px)</description>
+			<description xml:lang="vi">You can set width of contents.(default:900px)</description>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="jp">ロゴイメージ</title>
+            <title xml:lang="zh-CN">LOGO图片</title>
+            <title xml:lang="zh-TW">LOGO圖片</title>
+            <title xml:lang="en">Logo image</title>
+            <title xml:lang="ge">Logobildes</title>
+            <title xml:lang="ru">Изображения логотипа</title>
+            <title xml:lang="es">Imagen del logotipo</title>
+            <title xml:lang="vi">Hình Logo</title>
+            <description xml:lang="ko">필요한 경우, 레이아웃 좌측상단에 로고이미지를 넣을 수 있습니다. (높이가 10~13px인 가로형 투명이미지가 가장 어울립니다)</description>
+            <description xml:lang="jp">レイアウトの上段に表示されるロゴイメージを入力してください。 (縦幅が10~13pxである透明イメージが最も合います。)</description>
+            <description xml:lang="zh-CN">请输入显示在布局顶部的LOGO图片。(高度为10~13px的透明图片为适。)</description>
+            <description xml:lang="zh-TW">請輸入在版面上端要顯示的LOGO圖片。(適當高度為10~13px的透明圖片。)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (Transparent image with height of 10~13px is recommended.)</description>
+            <description xml:lang="ge">Bitte geben Sie ein Logo das Bild wird auf dem oberen Layout. (Transparent Bild mit einer Höhe von 10~13px wird empfohlen).</description>
+            <description xml:lang="ru">Введите логотип изображение, которое будет отображаться в верхней части формы. (Прозрачный изображение с высотой 10~13px рекомендуется.)</description>
+            <description xml:lang="es">Ingresar una imagen para logotipo. ( Se recomienda una imagen de fondo transparente con una altura de 10~13px.</description>
+            <description xml:lang="vi">Hãy chọn Logo hiển thị phía trên cùng của giao diện. (Đề nghị: Hình ảnh có nền trong suốt và kích thước 10~13px.)</description>
+		</var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="jp">ホームページURL</title>
+            <title xml:lang="zh-CN">主页地址</title>
+            <title xml:lang="zh-TW">主頁網址</title>
+            <title xml:lang="en">Homepage URL</title>
+            <title xml:lang="ge">Homepage URL</title>
+            <title xml:lang="ru">Домашняя страница URL</title>
+            <title xml:lang="es">URL de la página web</title>
+	        <title xml:lang="vi">URL Trang chủ</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホームページのURLを入力して下さい。</description>
+            <description xml:lang="zh-CN">点击网站LOGO时要移动的页面URL。</description>
+            <description xml:lang="zh-TW">請輸入當用戶按了網站Logo後，要前往的頁面網址。</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+            <description xml:lang="ge">Bitte geben Sie die URL umzuleiten, wenn Benutzer klickt das Logo</description>
+            <description xml:lang="ru">Пожалуйста, введите URL для перенаправления, когда пользователь нажимает логотип</description>
+            <description xml:lang="es">Ingresar el URL de la página web para redireccionar al pulsar el logotipo</description>
+	       <description xml:lang="vi">Hãy nhập địa chỉ bạn muốn chuyển đến khi bấm vào Logo</description>
+             </var>
+		<var name="copyright" type="text">
+            <title xml:lang="ko">저작권 표시</title>
+            <title xml:lang="jp">Display of Copyright</title>
+            <title xml:lang="zh-CN">Display of Copyright</title>
+            <title xml:lang="en">Display of Copyright</title>
+			<title xml:lang="es">Display of Copyright</title>
+			<title xml:lang="ru">Display of Copyright</title>
+            <title xml:lang="zh-TW">Display of Copyright</title>
+	        <title xml:lang="vi">Display of Copyright</title>
+            <description xml:lang="ko">
+			하단에 저작권표시를 직접 쓸 수 있습니다. (예. COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+            <description xml:lang="jp">
+			You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+            <description xml:lang="zh-CN">
+			You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+            <description xml:lang="en">
+			You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+			<description xml:lang="es">
+			You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+			<description xml:lang="ru">
+			You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+           <description xml:lang="zh-TW">
+		    You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+		   <description xml:lang="vi">
+		    You can write your copyright by yourself. (ex.COPYRIGHT@ Your name, ALL RIGHTS RESERVED. SINCE 2010)</description>
+        </var>
+</extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="jp">上段メニュー</title>
+            <title xml:lang="zh-CN">主菜单</title>
+            <title xml:lang="en">Top menu</title>
+			<title xml:lang="ge">Top Menü</title>
+			<title xml:lang="ru">Верхнее меню</title>
+            <title xml:lang="es">Menú Principal</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+    </menus>
+</layout>

@@ -1,0 +1,149 @@
+/**
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <ul><li><a href="#"><span>level 3</span></a></li></ul>
+ *                  </li>
+ *              </ul>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+/* menu::base */
+div#menu {
+    width:auto;
+}
+
+div#menu ul {
+    list-style: none;
+    float: left;
+}
+
+div#menu li {
+    position: relative;
+    display: block;
+    float: left;
+    z-index: 9;
+    width: auto;
+	margin-right:20px;
+}
+div#menu li span{
+	text-align:left;
+}
+div#menu ul ul li {
+    z-index: 9;
+}
+div#menu li div {
+    list-style: none;
+    float: left;
+    position: absolute;
+    z-index: 11;
+    top: 60px;
+    visibility: hidden;
+    left: 0;
+}
+div#menu li:hover>div {
+    visibility: visible;
+}
+
+div#menu a {
+    position: relative;
+    z-index: 10;
+    display: block;
+    float: left;
+    text-decoration: none;
+    white-space: nowrap;
+    width: auto;
+}
+div#menu span {
+    margin-top: 26px;
+    color: #fff;
+    font: 13px;
+    background: none;	
+    display: block;
+}
+div#menu li img{
+    margin-top: 26px;
+}
+
+/* menu::level1 */
+div#menu a {
+    line-height: 14px;
+    height: 60px;  
+}
+div#menu span {
+    font-weight:bold; 
+}
+div#menu a:hover span{
+	  color: #ff0000;
+}	
+div#menu a.on span{
+	  color: #ff0000;
+}	
+div#menu ul.menu>li:hover>a span {
+	  color: #ff0000;
+}
+
+/* menu::level2 */
+div#menu ul ul {
+	border:1px solid #292929;
+	border-bottom:0;
+    width: 124px;
+    line-height: auto;
+}
+div#menu ul ul li{
+    background:#222222;
+    line-height: auto;
+	width:124px;
+	border-bottom:1px solid #292929;
+	margin-right:0;
+	height:26px;
+}
+div#menu ul ul li a{
+	width:124px;
+    height: 26px;  
+}
+
+div#menu ul ul li a span {
+   width:94px;
+   padding:0 15px;
+   line-height: 26px;
+   font-weight: normal;
+   display: block;
+   margin:0;    
+   white-space: normal;
+   z-index: -1;
+   float: none;
+   text-align:left;
+   color:#8a8a8a;
+   font-weight:bold;
+   font-size:12px;
+   background:#151515;
+}
+div#menu ul ul li a:hover span{
+   background:#222222;
+   width:94px;
+   color:#fff;
+}
+div#menu ul ul li a.on span{
+    background:#222222;
+    width:94px;
+    color:#fff;
+}
+
+
+
+/* menu::level3 */
+div#menu ul ul div{
+    width: 124px;
+	margin-left:109px;
+	margin-top:-61px;
+	left:15px;
+}

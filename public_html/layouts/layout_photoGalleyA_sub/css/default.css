@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* eyepress (http://eyepress.co.kr) */
+
+
+/* default setting */
+body, h1, h2, h3, h4, h5, ol, ul, li, dl, dt, dd, p, span {margin:0; padding:0}
+ul,ol {list-style:none}
+h1, h2, h3, h4, h5,dt, dd, li, p, th, td, input, textarea, select {font-family:arial, 돋움; font-size:12px; color:#717171; line-height:24px}
+a{color:#717171; text-decoration:none}
+a:hover {color:#FFFFFF; text-decoration:underline}
+img{border:0}
+.dn{display:none}
+
+
+/* body */
+body {background:#111111; margin:0; padding:0}
+#bodyWrap {width:1200px; margin:0 auto; position:relative }
+
+
+/* topinfo */
+#topinfo {position:absolute; width:975px; z-index:100; display:none; left:112px; top:62px}
+#topinfo .close {position:absolute; bottom:20px; right:22px}
+#topinfo .close img{cursor:hand}
+
+/* header */
+#header {width:1200px; height:60px; position:relative; *zoom:1; z-index:1000; background:url(../images/header_bg.jpg) left bottom no-repeat; padding-bottom:1px}
+#header h1{margin-right:50px; padding-left:132px; display:inline-block; float:left}
+
+
+/*loginside*/
+#header ul#topnavi{position:absolute; right:133px; top:10px;}
+#header ul#topnavi li{float:left; margin-left:20px}
+
+
+/* inside */
+#inside {width:1200px; padding:12px 0 0 0; *zoom:1; overflow:hidden; height:24px; background:url(../images/inside_bg.jpg) left top repeat-y;}
+#inside .welcome {float:left; padding-left:132px}
+#inside .welcome {color:#9a9a9a; font-size:11px; line-height:11px; vertical-align:top}
+#inside .welcome a {color:#9a9a9a}
+#inside .welcome a:hover {color:#9a9a9a;}
+#inside .topinfobtn {float:right; padding-right:132px}
+#inside .topinfobtn img{cursor:hand}
+
+
+
+/* content */
+#contentbody {background:url(../images/contentbody_bg.jpg) center top no-repeat; width:1200px; padding-top:20px; padding-top:1px; z-index:1}
+
+
+#contentbody #content {background:url(../images/content_bg.jpg) center top repeat-y #161616; width:1200px; padding-bottom:20px}
+#contentbody #content .contentpage {width:975px; padding-left:112px; padding-top:50px}
+
+
+/*footer*/
+#footer {width:1200px; background:url(../images/footer_bg.jpg) center top repeat-y; *zoom:1; overflow:hidden}
+#footer .copyright{padding:60px 0 30px 30px; width:975px; margin:0 auto}
+
+
+/* modalWindow */
+.loginWindow{ display:none; position:fixed; left:0; top:0; _position:absolute; width:100%; height:100%; z-index:100;} 
+.loginWindow.open{ display:block;}
+.loginWindow .modalWindow{ display:block; position:fixed; border:0; left:0; top:0; _position:absolute; width:100%; height:100%; background:#000; opacity:.5; filter:alpha(opacity:50);}
+.loginWindow .loginLayer{ position:absolute; width:536px; top:289px; left:50%; padding-top:20px; padding-bottom:30px; margin:0 0 0 -269px; border:1px solid #292929; background:#1a1a1a;}
+.loginWindow .loginLayer h3 {border-bottom:1px solid #292929; padding-left:20px; padding-bottom:10px; margin-bottom:30px; font-size:0}
+.loginWindow .loginLayer fieldset{ border:0; margin:0; padding:0;}
+.loginWindow .loginLayer form{ display:none; *zoom:1; margin:0 0 0 20px; padding:0; border:0}
+.loginWindow .loginLayer form:after{ content:""; display:block; clear:both;}
+.loginWindow .loginLayer form legend{ position:absolute; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden;}
+.loginWindow .loginLayer form .keep {margin-left:85px}
+.loginWindow .loginLayer.loginTypeA form.typeA,
+.loginWindow .loginLayer.loginTypeB form.typeB{display:block;}
+.loginWindow .loginLayer dl{*zoom:1; overflow:hidden;}
+.loginWindow .loginLayer dt{width:54px; padding-top:8px; display:block; float:left}
+.loginWindow .loginLayer dd{padding-bottom:20px}
+.loginWindow .loginLayer .inputText{width:410px; height:25px; padding:5px 5px 0 5px; border:1px solid #000000; color:#717171; background:url(../images/inputboxbg.gif) left top repeat-x; font-weight:bold; font-size:15px;}
+.loginWindow .loginLayer .loginButton{padding-left:55px;}
+.loginWindow .loginLayer .loginButton input {background:url(../images/login_btn_login.gif) left top no-repeat; width:64px; height:21px; display:inline-block; border:0; vertical-align:top}
+.loginWindow .loginLayer .help {position:absolute; left:161px; top:185px; *zoom:1; overflow:hidden}
+.loginWindow .loginLayer .help li{float:left; margin-right:10px}
+.loginWindow .loginLayer .help li.join a{color:#717171; font-weight:bold; text-decoration:none}
+.loginWindow .loginLayer .help li.find a{color:#717171; text-decoration:none}
+.loginWindow .loginLayer .help li.typeA a{color:#717171; text-decoration:none}
+.loginWindow .loginLayer .help li.typeB a{color:#717171; text-decoration:none}
+.loginWindow .loginLayer .close{ position:absolute; cursor:pointer; border:0; padding:0; top:0; right:0; width:27px; height:27px; background:transparent url(../images/login_btn_close.gif) no-repeat center center;}
+.loginWindow .loginLayer .close span{ position:absolute; font-size:0; line-height:0; width:0; height:.; overflow:hidden; visibility:hidden;}
+
+
+
+/*module,widget*/
+#memberModule {margin-left:20px}
+#loginAccess  {margin-left:20px}
+#communicationModule{margin-left:20px}

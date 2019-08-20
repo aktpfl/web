@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">심 블로그2 레이아웃</title>
+    <description xml:lang="ko">심 블로그2 레이아웃.</description>
+    <version>1.0</version>
+    <date>2015-07-26</date>
+    <author email_address="craetive@yonsei.ac.kr" link="http://creative.gtz.kr">
+        <name xml:lang="ko">craetive</name>
+    </author>
+    <menus>
+        <menu name="main_menu" maxdepth="2" default="true">
+            <title xml:lang="ko">네비게이션 바</title>
+     	</menu>
+    </menus>
+	<extra_vars>
+
+
+        <var name="TEXTLOGO" type="text">
+            <title xml:lang="ko">사이트 텍스트 로고</title>
+        </var>
+        <var name="sublogo" type="text">
+            <title xml:lang="ko">로고 아래 서브 문구</title>
+        </var>
+		<var name="URL" type="text">
+			<title xml:lang="ko">로고 클릭 이동 링크 (이미지, 텍스트 공통)</title>
+		</var>
+		<var name="FOOTER" type="text">
+			<title xml:lang="ko">사이트 푸터 문자</title>
+		</var>
+	</extra_vars>
+</layout>

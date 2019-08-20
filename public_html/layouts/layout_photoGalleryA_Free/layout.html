@@ -1,0 +1,54 @@
+<!--// js 파일 import -->
+<!--%import("js/xe_official.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--%import("css/default.css")-->
+
+<div id="bodyWrap">
+	<div id="header">
+		<h1><a href="{$layout_info->index_url}"><!--@if($layout_info->logo_image)--><img src="{$layout_info->logo_image}" alt="home" /><!--@else--><img src="images/header_logo.gif" alt="home" /><!--@end--></a></h1>
+		<ul id="gnb">
+          <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+            <!--@endif--><!--@endforeach-->
+		</ul>
+		<ul id="topnavi">
+			<li>
+				<!--@if($is_logged)-->
+					<a href="{getUrl('act','dispMemberLogout')}"><img src="images/topnavi_logout.gif" alt="logout" /></a>
+				<!--@else-->
+					<a href="{getUrl('act','dispMemberLoginForm')}"><img src="images/topnavi_login.gif" alt="login" /></a>
+				<!--@end-->
+				</li>
+				<!--@if(!$is_logged)-->
+				<li><a href="{getUrl('act','dispMemberSignUpForm')}"><img src="images/topnavi_member.gif" alt="member" /></a></li>
+				<li><a href="{$layout_info->contact_url}"><img src="images/topnavi_contact.gif" alt="contact" /></a></li>
+				<!--@else-->
+				<li><a href="{getUrl('act','dispMemberInfo')}"><img src="images/topnavi_mypage.gif" alt="mypage" /></a></li>
+				<li><a href="{$layout_info->contact_url}"><img src="images/topnavi_contact.gif" alt="contact" /></a></li>
+				<!--@end-->
+		</ul>
+	</div>
+	<div id="inside">
+		<div class="welcome"><img src="images/inside_welcome.gif"  alt="eyepress photo gallery welcome you to website." /></div>
+		<div class="home"><a href="{$layout_info->index_url}"><img src="images/inside_home.gif" alt="home" /></a></div>
+	</div>
+	<div id="contentbody">
+		<div id="content">
+			<div class="contentpage">{$content}</div>
+		</div>
+		<div id="footer">
+			<p class="copyright">
+			<!--@if($layout_info->copyright_image)-->
+			<img src="{$layout_info->copyright_image}" alt="" />
+			<!--@else-->
+			<img src="images/footer_logo.gif" alt="eyepress copyright 2008-2010 eye-stopper. all right reserved" />
+			<!--@end-->
+			</p>
+		</div>
+	</div>
+</div>

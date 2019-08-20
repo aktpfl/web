@@ -1,0 +1,66 @@
+<load target="css/basic.css" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>creative</title>
+</head>
+
+<body>
+	<div id="header">
+    	<div id="navarea">
+              <a href="{$layout_info->URL}"><h1 cond="$layout_info->TEXTLOGO" cond="!$layout_info->logo_image">{$layout_info->TEXTLOGO}</h1></a>
+                <p cond="$layout_info->sublogo">{$layout_info->sublogo}</p>
+                <br />
+                <ul>
+                <li loop="$main_menu->list=>$key,$val"
+                	class="on"|cond="$val['selected']">
+                    <a href="{$val['href']}">{$val['link']}</a>
+                </li>
+             </ul>
+         </div>
+    </div>
+    <div id="conwarp">
+        <div id="content">
+            {$content}
+        </div>
+        <div id="asidemenu">
+        	<h1>menu</h1><br />
+				<ul cond="$layout_info->main_menu">
+                    <li loop="$main_menu->list=>$key1,$val1" |cond="$val1['selected']" class="bborder">
+                    <a href="{$val1['href']}">{$val1['link']}</a>
+                        <block cond="$val1['list']">
+                            <ul>
+                                <li loop="$val1['list']=>$key2,$val2" class="on"|cond="$val2['selected']">
+                                    <a href="{$val2['href']}">└{$val2['link']}</a>
+                                </li>
+                            </ul>
+                        </block>
+                    </li>
+				</ul>
+                <ul id="tool"><br />
+                     <li><a cond="!$is_logged" href="/?act=dispMemberLoginForm">로그인</a></li>
+                     <li><a cond="!$is_logged" href="/?act=dispMemberSignUpForm">회원가입</a></li>
+                      <li><a cond="$is_logged" href="/?act=dispMemberLogout">로그아웃</a></li>
+                     <li><a cond="$is_logged" href="/?act=dispMemberInfo">마이페이지</a></li>
+                     <li><a cond="$logged_info->is_admin" href="/admin">관리자</a></li>
+                </ul>
+        </div>
+          <div id="search">
+                  	<h1>search</h1>
+            <form action="{getUrl()}" method="get">
+                <input type="hidden" name="vid" value="{$vid}" />
+                <input type="hidden" name="mid" value="{$mid}" />
+                <input type="hidden" name="act" value="IS" />
+                <input name="is_keyword" type="text" class="sbar" size="12"  />
+                <input class="sbtn" type="submit" value="검색" />
+             </form> 
+          </div>
+        
+    </div>
+        <div id="footer">
+	<p cond="$layout_info->FOOTER">{$layout_info->FOOTER}</p>
+        </div>
+</body>
+</html>

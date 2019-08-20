@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+*{color:#717171}
+.title_01_01 {margin-top:0}
+.title_01_02 {margin-top:30px}	
+
+
+#memberModule {width:935px; *zooom:1; overflow:hidden;white-space:nowrap;}
+#memberModule h3 {padding-bottom:5px}
+#memberModule h4 {padding:5px 0 5px 20px; background:url(../img/iconH3.gif) no-repeat left center;}
+#memberModule h4 span.vr { font-size:11px; color:#AAA; }
+#memberModule h4 a.view { font-size:11px; font-family:vertical; color:#777e86; }
+#memberModule p.summary, 
+#memberModule div.infoText { margin:0 0 15px 0; line-height:1.6;}
+#memberModule p.summary{ color:#888;}
+#memberModule p.summary a { text-decoration:none; color:#888; }
+#memberModule p.summary.red { color:#A54D4D; }
+#memberModule p.summary.red a { text-decoration:none; color:#A54D4D; }
+#memberModule div.infoText { color:#888;}
+
+#memberModule .agreementBox { border:1px solid #292929; background:#000000; width:901px; height:250px; color:#717171; white-space:normal; overflow:scroll; padding:10px}
+#memberModule .agreementButton { padding:10px; margin-bottom:10px;}
+
+#memberModule .agree_check{position:relative; width:935px; padding-top:10px}
+#memberModule .agree_check .checkinput{position:absolute; left:0;color:#717171;}
+#memberModule .agree_check .checkbtn {position:relative; text-align:center}
+#memberModule .agree_check .checkbtn .button {background:url(../img/member/member_btn_cancel.gif) left top no-repeat; width:60px; height:21px; vertical-align:top; margin-left:3px}
+#memberModule .dateRemover {background:url(../img/member/member_btn_delete.gif) left top no-repeat; width:60px; height:21px; border:0; vertical-align:middle}
+
+#memberModule .localNavigation { border-bottom:1px solid #444; *zoom:1; margin:0 0 30px 0px; padding:0; overflow:hidden; }
+#memberModule .localNavigation:after {content:""; display:block; clear:both;}
+#memberModule .localNavigation li{list-style:none; float:left;  margin-right:1px; padding:0;background:#161616; font-weight:bold}
+#memberModule .localNavigation li a{ float:left; padding:7px 15px 0 15px; height:25px; text-decoration:none !important; color:#717171; border:1px solid #333; border-bottom:0}
+#memberModule .localNavigation li a:hover {background:none; background:#202020; color:#FFF}
+#memberModule .localNavigation li.active a{font-weight:bold; color:#333;}
+#memberModule .localNavigation li.on {}
+#memberModule .localNavigation li.on a{background:none; background:#333; color:#FFF}
+
+#memberModule .layer { display:none; position:absolute; border:2px solid #777; margin:0; font-size:12px; background:#fff;}
+#memberModule .layer * { margin:0; padding:0; font-size:12px; }
+#memberModule .layer h4 { font-size:14px !important; font-family:Dotum; background:#f4f4f4 !important; padding:8px 30px 8px 15px !important; letter-spacing:-1px !important; }
+#memberModule .layer .xButton { position:absolute; top:9px; right:9px; width:15px; height:14px; background-color:transparent; background:url(../img/buttonClose.gif) no-repeat; border:0; cursor:pointer; overflow:hidden; }
+#memberModule .layer .xButton span { position:relative; z-index:-1; visibility:hidden; }
+#memberModule .layer .layerBody{ margin:15px;}
+
+#memberModule .crossTable{ width:100%; border:0; margin:0 0 20px 0; padding:0;}
+#memberModule .crossTable th div { white-space:nowrap; }
+#memberModule .crossTable th,
+#memberModule .crossTable td{ border:0; padding:5px 10px; vertical-align:top; font-weight:normal;}
+#memberModule .crossTable thead th{ border-top:2px solid #cfcfcf; border-bottom:1px solid #e5e5e5; background-image:url(../img/lineVrText.gif); background-repeat:no-repeat; background-position:left center;}
+#memberModule .crossTable thead th:first-child{ background-image:none;}
+#memberModule .crossTable tbody th{ border-bottom:1px solid #e5e5e5; text-align:left;}
+#memberModule .crossTable td{ border-bottom:1px solid #f0f0f0;}
+
+#memberModule .colTable{ width:100%; border:0; margin:0 0 20px 0; padding:0;}
+#memberModule .colTable th div { white-space:nowrap; }
+#memberModule .colTable th,
+#memberModule .colTable td{ border:0; padding:5px 10px; vertical-align:top; font-weight:normal;}
+#memberModule .colTable th{ border-top:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d}
+#memberModule .colTable th:first-child{ background-image:none;}
+#memberModule .colTable td{ border-bottom:1px solid #1d1d1d;}
+
+#memberModule .rowTable{ width:933px; border:1px solid #292929; background:#1a1a1a}
+#memberModule .rowTable th div { white-space:nowrap;  width:150px; padding-left:20px}
+#memberModule .rowTable th,
+#memberModule .rowTable td{ border:0; padding:10px 0; text-align:left; vertical-align:top; font-weight:normal;}
+
+
+#memberModule .inputTypeText{background:url(../img/member/inputboxbg.gif) left top repeat-x; width:680px; height:25px; padding:5px 5px 0 5px; border:1px solid #000000; color:#717171; font-weight:bold; font-size:15px;}
+#memberModule .inputTypeSelect{background:url(../img/member/inputboxbg.gif) left top repeat-x; width:200px; height:25px; padding:5px 5px 0 5px; border:1px solid #000000; color:#717171; font-weight:bold; font-size:15px; margin-bottom:5px;}
+#memberModule .rowTable th.button, 
+#memberModule .colTable th.button, 
+#memberModule .crossTable th.button { text-align:right; padding-right:20px}
+
+
+#memberModule .w300 {width:300px}
+#memberModule .w400 {width:400px}
+#memberModule .w500 {width:500px}
+#memberModule .w600 {width:600px}
+
+
+#memberModule .inputbgstyle{background:url(../img/member/inputboxbg.gif) left top repeat-x; width:720px; height:25px; padding:5px 5px 0 5px; border:1px solid #000000; color:#717171; font-weight:bold; font-size:15px;}
+
+#memberModule .photobgstyle{background:url(../img/member/inputboxbg.gif) left top repeat-x #323232; padding:5px; border:1px solid #000000; color:#717171; width:720px}
+
+#memberModule .colTable td a,
+#memberModule .rowTable td a,
+#memberModule .crossTable td a {text-decoration:none; }
+
+#memberModule .colTable td.wide, 
+#memberModule .rowTable td.wide, 
+#memberModule .crossTable td.wide { width:100%;}
+
+#memberModule .rowTable th.title,
+#memberModule .crossTable th.title,
+#memberModule .colTable th.title { padding:3px 10px; font-weight:bold; text-align:center; background:#000; }
+
+#memberModule p { color:#AAA; margin:3px 0 0 0; padding:0;}
+#dummy_check_nick_name { color:red; margin:3px 0 0 0; padding:0; }
+#memberModule .require { color:red; font-size:10px; font-family:tahoma; font-weight:bold; margin-left:5px; }
+#memberModule .publicItem { margin:5px 0 0 0; padding:0; color:#aaa; }
+#memberModule .publicItem input { padding:0; margin: 0; }
+
+#memberModule caption{ font-size:11px; font-family:Tahoma; color:#888; text-align:left;}
+
+#memberModule td.openids div { float:left; margin-right:10px; margin-bottom:10px; }
+#memberModule td.openids div a { color:#AAA; text-decoration:none;}
+#memberModule .openid_user_id { background: url(../img/openid_login_bg.gif) left no-repeat; background-color: #1a1a1a; background-position: 0 50%; padding:3px 3px 3px 18px; border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; line-height:1em; vertical-align:middle; color:#666666; width:200px;}
+#memberModule .insertOpenID { clear:both; margin-top:10px; }
+#memberModule .savedContent { margin-top:10px; border:1px solid #EEE; padding:10px; }
+
+#memberModule .pagination{ padding:15px 0; margin:0; text-align:center; clear:both; }
+#memberModule .pagination *{ margin:0; padding:0;}
+#memberModule .pagination img{ border:0;}
+#memberModule .pagination a,
+#memberModule .pagination strong{ position:relative; display:inline-block; text-decoration:none; line-height:normal; color:#aaaaaa; font-family:Tahoma, Sans-serif; vertical-align:middle; font-size:11px}
+#memberModule .pagination a:hover,
+#memberModule .pagination a:active,
+#memberModule .pagination a:focus{ !important; }
+#memberModule .pagination strong{ color:#f73400 !important;}
+#memberModule .pagination a.prev,
+#memberModule .pagination a.prevEnd,
+#memberModule .pagination a.next,
+#memberModule .pagination a.nextEnd{ font-weight:normal !important; border:none !important; margin:0 !important; white-space:nowrap; }
+
+#memberModule .pagination.a1 a,
+#memberModule .pagination.a1 strong{ padding:1px 5px 1px 5px; border:none; font-weight:bold; font-size:11px;}
+#memberModule .pagination.a1 a.prev{ background:url(../img/arrowPrevA1.gif) no-repeat left center; width:21px; height:21px }
+#memberModule .pagination.a1 a.prev a:focus{ background:url(../img/arrowPrevA1_on.gif) no-repeat left center;}
+#memberModule .pagination.a1 a.prevEnd{ background:url(../img/arrowPrevA1.gif) no-repeat left center; width:21px; height:21px }
+#memberModule .pagination.a1 a.prevEnd a:focus{ background:url(../img/arrowPrevA1.gif_on.gif) no-repeat left center;}
+#memberModule .pagination.a1 a.next{ background:url(../img/arrowNextA1.gif) no-repeat right center; width:21px; height:21px  }
+#memberModule .pagination.a1 a.next a:focus{ background:url(../img/arrowNextA1_on.gif) no-repeat left center;}
+#memberModule .pagination.a1 a.nextEnd{background:url(../img/arrowNextA1.gif) no-repeat right center; width:21px; height:21px }
+#memberModule .pagination.a1 a.nextEnd a:focus{ background:url(../img/arrowNextA1_on.gif) no-repeat left center;}
+
+#memberModule .memberSmallBox { border:1px solid #212121; margin:50px auto 20px auto; padding:0; width:400px;}
+#memberModule .memberSmallBox .header { padding:10px; font-weight:bold; text-align:center; border-bottom:1px solid #212121; background:#111}
+#memberModule fieldset { position:relative; border:0; margin:0; padding:10px;}
+#memberModule .memberSmallBox .login dl { margin:0; padding:0; overflow:hidden; margin-right:10px; width:250px;}
+#memberModule .memberSmallBox .login dl dt { margin:0; padding:0; width:100px; clear:left; float:left; color:#54564b; height:24px; padding-top:3px; text-indent:10px;}
+#memberModule .memberSmallBox .login dl dd { margin:0; padding:0; float:left; width:150px; margin-bottom:3px}
+#memberModule .memberSmallBox .login .keep { clear:both; white-space:nowrap; margin-left:100px;}
+#memberModule .memberSmallBox .login .keep input { vertical-align:middle;}
+#memberModule .memberSmallBox .login .keep label { margin:0; padding:0; font-size:12px; color:#999999;}
+#memberModule .memberSmallBox .openid_user_id { background: url(../img/openid_login_bg.gif) left no-repeat; background-color: #1a1a1a; background-position: 0 50%; padding:3px 3px 3px 18px; border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; line-height:1em; vertical-align:middle; color:#666666; width:120px;}
+#memberModule .memberSmallBox .help { background:#212121; color:#666666; border-top:1px solid #212121; overflow:hidden; padding:1.1em; color:#555;}
+#memberModule .memberSmallBox .help a{ color:#666; text-decoration:underline;}
+#memberModule .memberSmallBox .buttonArea{ position:absolute; top:10px; left:270px;}
+
+
+#memberModule ul.checkbox,
+#memberModule ul.radio { list-style:none; margin:0; padding:0; }
+
+#memberModule .resendbtn{margin-top:10px; text-align:center}
+#memberModule .resendbtn input{background:url(../img/member/resendmail_btn_send.gif) left top repeat-x; width:106px; height:21px; border:0}
+
+#memberModule .idsearchbtn{margin-top:10px; text-align:center}
+#memberModule .idsearchbtn input{background:url(../img/member/findaccount_btn_idsearch.gif) left top repeat-x; width:137px; height:21px; border:0}
+
+#memberModule .passwordbtn{margin-top:10px; text-align:center}
+#memberModule .passwordbtn input{background:url(../img/member/findaccount_btn_password.gif) left top repeat-x; width:118px; height:21px; border:0}

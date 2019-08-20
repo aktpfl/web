@@ -1,0 +1,272 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--// 스타일시트 -->
+<load target="css/bootstrap.min.css" />
+<unload target="css/bootstrap-responsive.min.css" />
+<load target="css/font-awesome.css" />
+<load target="css/font-awesome.min.css" />
+<load target="css/font-awesome-ie7.min.css" />
+<load target="css/default.css" />
+<!--// 자바스크립트 -->
+<load target="js/bootstrap.min.js" />
+<load target="js/default.js" />
+<unload target="http://code.jquery.com/jquery.js" />
+{@
+	$li=$layout_info;$dispAdminTheme_link=getUrl('act','dispAdminTheme');
+	$is_not_mv = !(Mobile::isMobileCheckByAgent() && !$_COOKIE['fakeM']);
+}
+{Context::set("admin_bar", "false")}
+<!--@if($lang_type=='ko')-->
+{@
+$lang->tb_more="더보기";
+$lang->tb_message="쪽지";
+$lang->tb_theme="테마";
+$lang->tb_site="사이트";
+$lang->tb_message_alaram_title="쪽지 알림";
+$lang->tb_admin_only_content="";
+$lang->tb_socialxe_social_info="소셜 정보";
+$lang->tb_not_readed_message="개의 읽지 않은 쪽지가 있습니다.";
+}
+<!--@else-->
+{@
+$lang->tb_more="More...";
+$lang->tb_message="Message";
+$lang->tb_theme="Theme";
+$lang->tb_site="Site";
+$lang->tb_message_alaram_title="New Message";
+$lang->tb_admin_only_content ="";
+$lang->tb_socialxe_social_info="Social Infomation";
+$lang->tb_not_readed_message="";
+}
+<!--@end-->
+<!--s:hgroup-->
+<hgroup class="navbar navbar-inverse navbar-static-top">
+
+<div>
+<!-- s:sitebar -->
+<aside class="sitebar visible-desktop">
+	<ul>
+	<!--@foreach($site_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+	<ul class="login">
+        <!--@if(!$is_logged)-->
+		<li><a href="{getUrl('mid',$layout_info->target_mid,'act','dispMemberSignUpForm')}"><img src="./img/login/btn_signup.png"></a></li>
+		<li><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./img/login/btn_login.png"></a></li>
+        <!--@else-->
+
+            <!--<li><a href="{geturl('act','dispMemberInfo')}">정낙훈님</a></li>-->
+            <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./img/login/btn_logout.png"></a></li>
+		<!--@end-->
+            <!-- 최고관리자이면 관리자 페이지 버튼 출력 -->
+            <!--@if($logged_info->is_admin == 'Y')-->
+            <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;"><img src="./img/login/btn_admin.gif" style="vertical-align:middle;"></a></li>
+            <!--@end-->
+	</ul>
+</aside>
+<!-- e:sitebar -->
+<!--s:logo-->
+			<div class="container-fluid logo"><a class="brand" href="{$li->index_url}"><!--@if($li->htitle)-->{$li->htitle}<!--@else-->eond rosso<!--@end--></a></div><!--e:logo-->
+<!--s:header-->
+			<header class="navbar-inner" style="padding:0 4px;">
+
+				<div class="container-fluid">
+<div style="margin:5px 0 8px 0;overflow:hidden;float:left;">
+<nav loop="$main_menu->list=>$key1,$val1" cond="$val1['text']" class="pull-left">
+<a class="btn btn-navbar" href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" style="width:12px;overflow:hidden;height:20px;padding:4px 8px;margin-left:2px">{$val1['link']}</a>
+</nav>
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" style="padding:4px 8px;margin-left:2px;float:left;"><i class="icon-sitemap"></i></a>
+</div>
+<!--s:nav(gnb)-->
+				<nav class="gnb nav-collapse">
+				<ul class="nav">
+					<!--// Main menu -->
+					<block loop="$main_menu->list=>$key1,$val1" cond="$val1['text']">
+						<!--@if($val1['link']!="||||")-->
+							<li class="<!--@if($val1['list'])-->dropdown<!--@end--><!--@if($val1['selected'])--> active<!--@end-->">
+								<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}<!--@if($val1['list'])--> <b class="caret"></b><!--@end--></a>
+								<ul cond="$val1['list']" class="dropdown-menu">
+									<block loop="$val1['list']=>$key2,$val2" cond="$val2['link']">
+										<!--@if($val2['link']!="----")-->
+											<li class="<!--@if($val2['list'])-->dropdown-submenu<!--@end--><!--@if($val2['selected'])--> active<!--@end-->">
+												<a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">{$val2['link']}</a>
+												<ul cond="$val2['list']" class="dropdown-menu">
+													<block loop="$val2['list']=>$key3,$val3" cond="$val3['link']">
+														<!--@if($val3['link']!="----")-->
+															<li class="<!--@if($val3['list'])-->dropdown-submenu<!--@end--><!--@if($val3['selected'])--> active<!--@end-->">
+																<a href="{$val3['href']}" target="_blank"|cond="$val3['open_window']=='Y'">{$val3['link']}</a>
+																<ul cond="$val3['list']" class="dropdown-menu">
+																	<block loop="$val3['list']=>$key4,$val4" cond="$val4['link']">
+																		<!--@if($val4['link']!="----")-->
+																			<li class="<!--@if($val4['list'])-->dropdown-submenu<!--@end--><!--@if($val4['selected'])--> active<!--@end-->">
+																				<a href="{$val4['href']}" target="_blank"|cond="$val4['open_window']=='Y'">{$val4['link']}</a>
+																			</li>
+																		<!--@else-->
+																			<li class="divider"></li>
+																		<!--@end-->
+																	</block>
+																</ul>
+															</li>
+														<!--@else-->
+															<li class="divider"></li>
+														<!--@end-->
+													</block>
+												</ul>
+											</li>
+										<!--@else-->
+											<li class="divider"></li>
+										<!--@end-->
+									</block>
+								</ul>
+							</li>
+						<!--@else-->
+							<li class="divider-vertical"></li>
+						<!--@end-->
+					</block>
+				</ul>
+
+
+							<ul class="nav pull-right">
+								<li cond="$li->twitter"><a href="{$li->twitter}" target="_blank"><i class="icon-twitter-sign"></i></a></li>
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span><i class="icon-facebook-sign"></i></span>
+									<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+
+										<div id="fb-root"></div>
+										<script>(function(d, s, id) {
+										  var js, fjs = d.getElementsByTagName(s)[0];
+										  if (d.getElementById(id)) return;
+										  js = d.createElement(s); js.id = id;
+										  js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1";
+										  fjs.parentNode.insertBefore(js, fjs);
+										}(document, 'script', 'facebook-jssdk'));</script>
+										<li cond="$li->facebook"><a href="{$li->facebook}" target="_blank"><i class="icon-thumbs-up"></i> Like this Website</a>
+										<div class="span1 fb-like" data-href="{$li->facebook}" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-colorscheme="dark"></div>
+										</li>
+										<li><a href="http://www.facebook.com/eondcom" target="_blank"><i class="icon-heart"></i> Like this Design</a>
+										<div class="span1 fb-like" data-href="http://facebook.com/eondcom" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false" data-colorscheme="dark"></div>
+										</li>
+
+																			</ul>
+								</li>
+								<block cond="$is_logged">
+								<li class="divider-vertical"></li>
+
+								<li class="dropdown">
+		<li id="message_list" class="dropdown" cond="$is_logged">
+			<load target="js/communication.js" />
+			<block cond="$is_logged">
+				{@
+					$oDB = &DB::getInstance();
+					$query = $oDB->_query('select * from xe_member_message where receiver_srl = '.$logged_info->member_srl.' AND message_type = "R" ORDER BY  regdate DESC limit 0, 5');
+					$result = $oDB->_fetch($query);
+					$output = executeQueryArray('addons.message_alarm.getMessageCount', $aobj);
+				}
+				<script cond="count($output->data) && !Mobile::isMobileCheckByAgent()">
+					jQuery(function($){$(".navbar a").hover(function(){$("#message_list>a").tooltip('hide');}).tooltip({placement:"bottom",trigger:"manual",title:"{count($output->data)}{$lang->tb_not_readed_message}"}).delay(500).queue(function(){$("#message_list>a").tooltip('show');}).delay(5000).queue(function(){$("#message_list>a").tooltip('hide');})});
+				</script>
+			</block>
+									<a href="{getURL('act','dispCommunicationMessages')}" data-href="#" data-toggle="dropdown" class="dropdown-toggle">
+									<i class="icon-envelope"></i> Me</a>
+
+											<!--s:MessageBox-->
+			<ul class="dropdown-menu" style="min-width:240px">
+				<li class="nav-header">Message List</li>
+				<!--@if(is_array($result)==true)-->
+					<!--@foreach($result as $key=>$val)-->
+					{@
+						$oMemberModel =& getModel('member');
+						$member_info = $oMemberModel->getMemberInfoByMemberSrl($val->sender_srl);
+					}
+					<li class="readed">
+						<a href="{getURL('act','dispCommunicationMessages','message_srl',$val->message_srl)}" class="popover-left" title="{strip_tags($val->title)}" data-content="{iconv_substr(strip_tags($val->content),0,100,'UTF-8')}" >
+							<!--@if($member_info->profile_image->src)-->
+								<img src="{$member_info->profile_image->src}" class="img-polaroid profile_img" />
+							<!--@else-->
+								<img src="./img/profile.gif" class="img-polaroid profile_img" />
+							<!--@end-->
+							<span class="content">
+								<span class="nickname">
+									{$member_info->nick_name}
+								</span>
+								<span class="title">
+									{strip_tags($val->title)}...
+								</span>
+							</span>
+							<span class="clear" style="display:block"></span>
+							<button type="button" onclick="doSendMessage('{$member_info->member_srl}','{$val->message_srl}');return false;" class="btn btn-mini reply_message"><i class="icon-share-alt"></i> {$lang->cmd_reply_message}</button>
+							<button type="button" class="btn btn-mini">{$lang->tb_more}</button>
+
+							<span class="clear" style="display:block"></span>
+						</a>
+					</li>
+				<!--@end-->
+				<li class="divider" style="border-bottom:1px solid #222;background-color:black;"></li>
+				<li class="more"><a href="{getURL('act','dispCommunicationMessages')}">{$lang->tb_more}</a></li>
+				<!--@else-->
+					{@
+						$oMemberModel =& getModel('member');
+						$member_info = $oMemberModel->getMemberInfoByMemberSrl($result->sender_srl);
+					}
+					<li>
+						<a href="{getURL('act','dispCommunicationMessages','message_srl',$result->message_srl)}" class="popover-left readed" rel="popover" title="{strip_tags($result->title)}" data-content="{substr(strip_tags($result->content),0,100)}" >
+							<!--@if($member_info->profile_image->src)-->
+								<img src="{$member_info->profile_image->src}" class="img-polaroid profile_img" />
+							<!--@else-->
+								<img src="./img/profile.gif" class="img-polaroid profile_img" />
+							<!--@end-->
+							<span class="content">
+								<span class="nickname">
+									{$member_info->nick_name}
+								</span>
+								<span class="title">
+									{strip_tags($result->title)}
+								</span>
+							</span>
+							<span class="clear" style="display:block"></span>
+							<button type="button" onclick="doSendMessage('{$member_info->member_srl}','{$val->message_srl}');return false;" class="btn btn-mini reply_message"><i class="icon-share-alt"></i> {$lang->cmd_reply_message}</button>
+							<button type="button" class="btn btn-mini"><i class="icon-eye-open"></i> {$lang->tb_more}</button>
+							<span class="clear" style="display:block"></span>
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li class="more"><a href="{getURL('act','dispCommunicationMessages')}"><i class="icon-share-alt"></i> {$lang->tb_more}</a></li>
+				<!--@end-->
+			</ul><!--e:MessageBox-->
+			</li>
+
+								</block>
+							</ul>
+						</nav><!--e:nav-->
+
+
+						</div>
+
+				</header><!--e:header-->
+
+			</div>
+
+		</hgroup><!--e:hgroup-->
+<!-- s:container -->
+<!--s:section-->
+		<section class="container-fluid pull-left">
+		<!--s:breadcrumb
+		<ul class="breadcrumb visible-desktop margin-up"><li><a href="#"><i class="icon-map-marker"></i></a><span class="divider"><i class="icon-angle-right"></i></span></li><li><a href="#">Library</a><span class="divider"><i class="icon-angle-right"></i></span></li><li class="active">Data</li></ul><!--e:breadcrumb-->
+		<article class="content">{$content}</article>
+		</section>
+<!--e:section-->
+<!--s:footer-->
+		<footer class="" style="clear:both;">
+		<nav class="fnb">
+		</nav>
+		<address class="info pull-left"><i class="icon-info-sign"></i> Copyright ⓒ <a href="http://eond.com" target="_blank"><b>eond.com</b></a> All Rights Reserved.</address><span class="pull-right info"><i class="icon-info-sign"></i> Layout by <a href="http://eond.com" target="_blank"><b>eond.com</b></a></span>
+		</footer>
+<!--e:footer-->
+<!-- e:container -->

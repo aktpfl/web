@@ -1,0 +1,113 @@
+<!-- js 파일 import -->
+<!--%import("js/xe_onya_1.0.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "gray")-->
+    <!--%import("css/gray.css")-->
+	<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+		<script type="text/javascript">
+			document.documentElement.style.overflowY = "scroll"; 
+		</script>
+<!--@if(!$layout_info->content_width)-->{@ $layout_info->content_width = 900; }<!--@end-->
+<div id="bodyWrap" style="width:{$layout_info->content_width}px;">
+	<div id="header">	
+        <h1><!--@if($layout_info->logo_image)--><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /></a><!--@else-->&nbsp;<!--@end--></h1>
+
+        <div id="log_language">
+			<!--@if(!$is_logged)--><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./images/{$layout_info->colorset}/buttonLogin.gif"></a>
+			<img src="./images/{$layout_info->colorset}/buttonVr.gif">
+			<a href="{getUrl('act','dispMemberSignUpForm')}"><img src="./images/{$layout_info->colorset}/buttonJoin.gif"></a>
+			<!--@else-->
+				<!-- 최고관리자이면 관리자 페이지 버튼 출력 -->
+				<!--@if($logged_info->is_admin == 'Y')-->
+				<a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;"><img src="./images/{$layout_info->colorset}/buttonManage.gif"></a>
+				<img src="./images/{$layout_info->colorset}/buttonVr.gif">
+				<!--@end-->
+				<a href="{geturl('act','dispMemberInfo')}"><img src="./images/{$layout_info->colorset}/buttonMyinfo.gif"></a>
+				<img src="./images/{$layout_info->colorset}/buttonVr.gif">
+				<a href="{getUrl('act','dispMemberLogout')}"><img src="./images/{$layout_info->colorset}/buttonLogout.gif"></a>
+			<!--@end-->
+			<!-- 다국어 언어선택버튼 출력 -->
+			<img src="./images/{$layout_info->colorset}/buttonVr.gif">
+			<a href="#selectLang" onclick="showHide('selectLang');return false;"><img src="./images/{$layout_info->colorset}/buttonLang.gif" alt="Select Language"></a>
+            <ul id="selectLang">
+                <!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+                <li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+                <!--@end--><!--@end-->
+            </ul>
+        </div>
+		<!-- 통합검색창 출력 -->
+        <form action="{getUrl()}" method="post" id="isSearch">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+            <input type="hidden" name="search_target" value="title_content" />
+            <input name="is_keyword" type="text" class="inputText" title="keyword" />
+            <input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+        </form>
+
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            {@$gnb_count = 0;}
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+                <li id="gnbli{$gnb_count}" <!--@if($val['selected'])-->class="on"<!--@end-->  ><a href="{$val['href']}" onfocus="this.blur()" onmouseover="gnbinToggle({$gnb_count}, this)"
+				<!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;" <!--@end-->>{$val['link']}</a></li>{@$gnb_count++;}
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+
+		<script type="text/javascript">
+			var gnb_count = {$gnb_count};
+		</script>
+
+		<!-- 2차메뉴 -->
+        {@$gnb_count = 0;}
+        <!--@foreach($main_menu->list as $mkey => $mval)-->
+		  <!--@if($mval['text'])-->
+          <!-- 2차 서브메뉴 -->
+          <!--@if($mval['selected'])-->
+            <ol id="gnb{$gnb_count}" class="gnb_sub" style="display:block;">
+			  <!--@if(!$mval['list'])--><li></li><!--@end-->
+              <!--@foreach($mval['list'] as $key => $val)--><!--@if($val['text'])-->
+			  <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" onfocus="this.blur();" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+			  </li>
+              <!--@end--><!--@end-->
+		    </ol>
+		<script type="text/javascript">
+			var gnb_count_now = {$gnb_count};
+			reset_menu();
+		</script>
+          <!--@else-->
+            <ol id="gnb{$gnb_count}" class="gnb_sub" style="display:none;">
+			  <!--@if(!$mval['list'])--><li></li><!--@end-->
+              <!--@foreach($mval['list'] as $key => $val)--><!--@if($val['text'])-->
+			  <li><a href="{$val['href']}" onfocus="this.blur();" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+			  </li>
+              <!--@end--><!--@end-->
+		    </ol>
+          <!--@end-->
+          {@$gnb_count++;}
+          <!--@end-->
+        <!--@end-->
+	</div>
+	<div id="contentBody" style="width:{$layout_info->content_width-15}px;">
+		<div id="columnCenter" style="width:{$layout_info->content_width-30}px;">
+            <!-- 컨텐츠 시작 -->
+            {$content}
+		</div>
+	</div>
+	<ul id="footer">
+		<li>
+			<div><a href="http://www.xpressengine.com" onclick="window.open(this.href);return false;"><img src="./images/{$layout_info->colorset}/powerdByZeroboard.gif" alt="Powered By XpressEngine" width="69" height="5"></a><img src="images/{$layout_info->colorset}/bgfooterVr.gif" width="11" height="5"><a href="http://onyabyul.net" target="_blank"><img src="images/{$layout_info->colorset}/designby.gif" alt="http://onyabyul.net" width="95" height="5"></a></div></li>
+    	<li><div class="copyright">{$layout_info->copyright}</div></li>
+	</ul>
+</div>

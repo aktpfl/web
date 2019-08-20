@@ -1,0 +1,17 @@
+<!--#include("./common_header.html")-->
+<!--%import("filter/resend_auth_mail.xml")-->
+<!--%import("css/default.css")-->
+<!--%import("js/member.js")-->
+
+
+<form action="./" method="post" onsubmit="return procFilter(this, resend_auth_mail)">
+    <h3><img src="img/member/resendmail_title01_01.gif" alt="인증메일재발송" /></h3>
+    <div class="infoText">{$lang->about_resend_auth_mail}</div>
+    <table cellspacing="0" class="rowTable">
+        <tr>
+            <th scope="row" style="padding-left:20px">{$lang->email_address}</th>
+            <td><input type="text" name="email_address" value="" class="inputTypeText" /></td>
+        </tr>
+    </table>
+    <div class="resendbtn"><input type="submit" value="" alt="인증 메일 재발송" /></div>
+</form>

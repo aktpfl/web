@@ -1,0 +1,202 @@
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--%import("css/default.css")-->
+<!--%import("css/menu.css")-->
+
+
+<!--// js 파일 import -->
+
+<!--%import("js/jquery.js")-->
+<!--%import("js/menu.js")-->
+
+<script type="text/javascript">
+(function($){
+	$(document).ready(function () {
+		$("div.topinfobody").addClass("alt");
+		$('img.topinfofind').click(function(){
+		$('div.topinfobody').fadeIn();										 
+		$(this).addClass("active");	
+		$(this).siblings("div.topinfobody").fadeIn();	
+		});
+
+		$(".close").click(function(){
+			$("div.topinfobody").removeClass("active");												 									 
+			$("div.topinfobody").fadeOut();
+		});
+	});
+})(jQuery);
+</script>
+
+
+<div id="bodyWrap">
+	<div id="header">
+		<h1><a href="{$layout_info->index_url}"><!--@if($layout_info->logo_image)--><img src="{$layout_info->logo_image}" alt="home" /><!--@else--><img src="images/header_logo.gif" alt="home" /><!--@end--></a></h1>	<div id="menu">
+			<ul class="menu">
+				{@$_idx = 1}
+				<!--@foreach($main_menu->list as $key => $val)-->
+				<!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end-->
+				<!--@if($val['selected']&&$val['url']==$mid)-->{@$_menu_depth=2}{@$selected_menu=$val}<!--@end-->
+				<!--@if($val['link'])-->
+				<li class="parent"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> <!--@if($val['selected'])-->class="on"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+				<!--@if($val['list'])-->
+					<div>
+						<ul>
+							<!--@foreach($val['list'] as $k => $v)-->
+							<!--@if($val['link'])-->
+							{@ $val2 = $v; }
+							<li class="parent" <!--@if($val2['list'])--><!--@end-->><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> <!--@if($v['selected'])--><!--@end-->><!--@if($v['text']==$v['link'])--><span>{$v['text']}</span><!--@else-->{$v['link']}<!--@end--></a>
+							<div>
+							<!--@if($v['list'])-->
+							<ul>
+								<!--@foreach($v['list'] as $k2 => $v2)-->
+								<!--@if($v['link'])-->
+								{@ $val3 = $v2; }
+								<li <!--@if($val3['list'])--><!--@end-->><a href="{$v2['href']}"<!--@if($v2['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> <!--@if($v2['selected'])--><!--@end-->><!--@if($v2['text']==$v2['link'])--><span>{$v2['text']}</span><!--@else-->{$v2['link']}<!--@end--></a>
+								</li>                
+								<!--@end-->
+								<!--@end-->						
+							</ul>
+								<!--@end-->	
+							</div>
+							</li>
+							<!--@end-->
+							<!--@end-->
+						</ul>	
+					</div>
+				<!--@end-->
+				</li>
+				{@$_idx++}
+				<!--@end-->
+				<!--@end--> 
+			</ul>
+			<a class="dn" href="http://apycom.com/"></a>
+		</div>
+		<ul id="topnavi">
+			<li>
+				<!--@if($is_logged)-->
+					<a href="{getUrl('act','dispMemberLogout')}"><img src="images/topnavi_logout.gif" alt="logout" /></a>
+				<!--@else-->
+					<a href="#loginWindow" onclick="jQuery('#loginWindow').css('display','block');" accesskey="L"><img src="images/topnavi_login.gif" alt="login" /></a>
+				<!--@end-->
+				</li>
+				<!--@if(!$is_logged)-->
+				<li><a href="{getUrl('act','dispMemberSignUpForm')}"><img src="images/topnavi_member.gif" alt="member" /></a></li>
+				<li><a href="{$layout_info->contact_url}"><img src="images/topnavi_contact.gif" alt="contact" /></a></li>
+				<!--@else-->
+				<li><a href="{getUrl('act','dispMemberInfo')}"><img src="images/topnavi_mypage.gif" alt="mypage" /></a></li>
+				<li><a href="{$layout_info->contact_url}"><img src="images/topnavi_contact.gif" alt="contact" /></a></li>
+				<!--@end-->
+		</ul>
+	</div>
+	<div id="inside">
+		<div class="welcome">
+			<!-- depth 1 -->
+			<!--@foreach($main_menu->list as $key => $val)-->
+				<!--@if($val['selected'])-->{@$menu_depth1 = $val}<!--@end-->
+			<!--@end-->
+			<!-- depth 2 -->
+			<!--@if($menu_depth1)-->
+				<!--@foreach($menu_depth1['list'] as $key => $val)-->
+					<!--@if($val['selected'])-->{@$menu_depth2 = $val}<!--@end-->
+				<!--@end-->
+			<!--@end-->
+			<!-- depth 3 -->
+			<!--@if($menu_depth2)-->
+				<!--@foreach($menu_depth2['list'] as $key => $val)-->
+					<!--@if($val['selected'])-->{@$menu_depth3 = $val}<!--@end-->
+				<!--@end-->
+			<!--@end-->
+			<!-- depth 4 -->
+			<!--@if($menu_depth3)-->
+				<!--@foreach($menu_depth3['list'] as $key => $val)-->
+					<!--@if($val['selected'])-->{@$menu_depth4 = $val}<!--@end-->
+				<!--@end-->
+			<!--@end-->
+				<a href="{getSiteUrl()}">Home</a>
+			<!--@if($menu_depth1)-->
+			  /  <a href="{$menu_depth1['href']}">{$menu_depth1['text']}</a>
+			<!--@end-->
+			<!--@if($menu_depth2)-->
+			   / <a href="{$menu_depth2['href']}">{$menu_depth2['text']}</a>
+			<!--@end-->
+			<!--@if($menu_depth3)-->
+			  /  <a href="{$menu_depth3['href']}">{$menu_depth3['text']}</a>
+			<!--@end-->
+			<!--@if($menu_depth4)-->
+			  /  <a href="{$menu_depth4['href']}">{$menu_depth4['text']}</a>
+			<!--@end-->
+		</div>
+		<div class="topinfobtn"><!--@if($layout_info->topinfobtn_image)--><img src="{$layout_info->topinfobtn_image}" alt="" class="topinfofind" /><!--@else--><img src="images/inside_topinfo.gif" alt="" class="topinfofind" /><!--@end--></div>
+	</div>
+	<div id="topinfo" class="topinfobody">
+		<!--@if($layout_info->topinfo_image)--><img src="{$layout_info->topinfo_image}" alt="" /><!--@else--><img src="images/topinfo_img.gif" alt="" /><!--@end-->
+		<div class="close"><img src="images/topinfo_close.gif" alt="close" /></div>
+	</div>
+	<div id="contentbody">
+		<div id="content">
+			<div class="contentpage">{$content}</div>
+		</div>
+		<div id="footer">
+			<div class="copyright">
+			<!--@if($layout_info->copyright_image)-->
+			<img src="{$layout_info->copyright_image}" alt="" />
+			<!--@else-->
+			<img src="images/footer_logo.gif" alt="eyepress copyright 2008-2010 eye-stopper. all right reserved" />
+			<!--@end-->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--@if(!$is_logged)-->
+    {@ $member_config = MemberModel::getMemberConfig(); }
+    <!--%import("./filter/login.xml")-->
+    <!--@if($member_config->enable_openid=='Y')--><!--%import("./filter/openid_login.xml")--><!--@end-->
+    <!-- loginWindow -->
+    <div id="loginWindow" class="loginWindow">
+    <!-- class="loginWindow" | class="loginWindow open" -->
+        <span class="modalWindow"></span>
+        <div id="loginLayer" class="loginLayer loginTypeA">
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+			<h3><img src="images/login_title.gif" alt="login" /></h3>
+            <form action="" method="post" class="typeA" id="commonLogin" onsubmit="return procFilter(this, login)">
+                <fieldset>
+                    <legend>XE Login</legend>
+                    <dl>
+                        <dt><label for="uid">{$lang->user_id}</label></dt>
+                        <dd><input name="user_id" type="text" class="inputText" id="uid" /></dd>
+                        <dt><label for="upw">{$lang->password}</label></dt>
+                        <dd><input name="password" type="password" class="inputText" id="upw" /></dd>
+                    </dl>
+                    <!--p class="keep"><input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/><label for="keepA">{$lang->keep_signed}</label></p-->
+                    <span class="loginButton"><input name="" type="submit" value="" /></span>
+                </fieldset>
+            </form>
+            <!--@if($member_config->enable_openid=='Y')-->
+            <form action="./" method="post" class="typeB" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                <fieldset>
+                    <legend>OpenID Login</legend>
+                    <dl>
+                        <dt><label for="oid">Open ID</label></dt>
+                        <dd><input name="openid" type="text" class="inputText" id="oid" /></dd>
+                    </dl>
+                    <span class="loginButton"><input name="" type="submit" value="" alt="로그인" /></span>
+                </fieldset>
+            </form>
+            <!--@end-->
+            <ul class="help">
+                <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+				<li>|</li>
+                <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+				<li>|</li>
+                <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+                <!--@if($member_config->enable_openid=='Y')-->
+                <li class="typeA"><a href="#openidLogin" onclick="document.getElementById('loginLayer').className='loginLayer loginTypeB'">OpenID</a></li>
+                <li class="typeB"><a href="#commonLogin" onclick="document.getElementById('loginLayer').className='loginLayer loginTypeA'">OpenID</a></li>
+                <!--@end-->
+            </ul>
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+        </div>
+    </div>
+    <!-- /loginWindow -->
+<!--@end-->

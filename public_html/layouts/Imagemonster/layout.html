@@ -1,0 +1,360 @@
+<!--%import("lang")-->
+<meta http-equiv="imagetoolbar" content="no" />
+<?php
+$i=0;
+$selected_idx=0;
+?>
+
+
+{@
+Context::addHtmlHeader('<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->');
+Context::addHtmlHeader('<meta name="viewport" content="width=device-width, initial-scale=1">');
+}
+
+
+<load target="js/jquery-1.10.2.min.js" />
+<load target="js/jquery-migrate-1.2.1.min.js" />
+<load target="js//jquery-ui.js" />
+<load target="js/respond.min.js" targetie="lt IE 9" type="body" />
+
+<script  type="text/javascript">
+$(document).ready(function() {
+	var height=$( window ).height(); 	
+	$('body').css('minHeight',height+10);
+
+	$('body').keydown(function(event) {
+		keypressed(event);
+   })
+	
+	$('body').mousedown(function(event) {
+		mouseclick(event);
+   })
+
+	function mouseclick(event) {
+	
+		 if((event.button==2) || (event.button==3)) {
+		  return false;
+		 }
+	}
+
+	function keypressed(event) {
+		var key=event.keyCode;
+		  if(key==17) { return false; }
+		 if(key==18) { return false; }
+		 if(key==93) { return false; }
+		 if(key==41) { return false; }
+	}
+
+
+
+	$('#gnb .m1').hover(
+					   
+		function () {
+				if($(this).is(":last-child")){
+					$('.lnb', this).css('right',0);
+					$('.lnb a', this).css('text-align','right');
+				}
+				$('.lnb', this).css('height','auto');/*lnb의 height를 제대로 인식 못하시때문에*/
+				$('.lnb', this).css('overflow','visible');
+				$('.lnb', this).stop().slideDown(200);
+				$('a.m1_a',this).animate({color: '{$layout_info->menu1_acolor}',backgroundColor: '{$layout_info->menu1_bcolor}'},500);
+				
+		}, 
+		function () {
+				$('.lnb', this).stop().slideUp(200);			
+				$('a.m1_a',this).animate({backgroundColor: '{$layout_info->top_backcolor}', color: '{$layout_info->menu1_tcolor}'},500);
+		}
+	);
+	$('.map_item').click(function(){
+		if($('.map_item .arrow').is(':visible'))						
+			$('ul', this).stop(true,true).slideToggle();
+		
+	})
+
+	$('.sub_gnb .sub_li').click(function(){
+						
+		$('.sub_lnb', this).stop(true,true).slideToggle();
+	})
+
+});
+</script>
+<load target="css/style.css" />
+<include target="config.html" />
+
+
+<div id="wrap" oncontextmenu= "return false" ondragstart="return false" onselectstart="return false">
+	<!--@if($layout_info->top_ad)-->
+	<div class="top_ad">
+	<a href="{$layout_info->top_ad_url}"><img src="{$layout_info->top_ad}"/></a>
+	</div>
+	<!--@end-->
+   <div class="top">
+ <!--  <div class="top_back"></div>-->
+       <div class="header">
+                
+        <div class="logo" ><a href="{$layout_info->index_url}" cond="$layout_info->logo_image" >
+        <img src="{$layout_info->logo_image}" alt="LOGO" title="LOGO" /></a></div><!--logo-->
+
+		
+   		<ul class="gnb" id="gnb">
+		{@$n=0;}
+			<li loop="$main_menu->list=>$key1,$val1" <!--@if($val1['selected'])-->class="m1 on"<!--@else-->class="m1"<!--@end--> >
+	       	<a class="m1_a" href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" onfocus="this.blur();">{$val1['link']}</a>
+
+		         <!--@if($val1['selected'])-->
+             	{@ $menu_1st = $val1 }
+                {@ $selected_idx = $n}
+        	     <!--@end-->
+        		<div class="lnb" id="lnb"  cond="$val1['list']" >
+		        	<ul ><li loop="$val1['list']=>$key2,$val2" class="s1" <!--@if($val2['selected'])-->class="on" <!--@end-->>
+	                    <a href="{$val2['href']}" class="s1_a" target="_blank"|cond="$val2['open_window']=='Y'" onfocus="this.blur();">{$val2['text']}</a></li>
+               		</ul>
+               	</div>
+				 {@$n++;}           
+			 </li>
+        </ul><!-- //gnb -->
+        <span class="menu_ico">
+        	<span id="member"><!--@if($is_logged)--><a onclick="jQuery('#memberProfile').slideToggle();">
+				            <!--@else--><a onclick="jQuery('.login_window').fadeIn('slow');">
+                            <!--@end--><img src="images/member.png"/></a></span>
+        	<span id="menu"><a onclick="jQuery('.sub_gnb').slideToggle();"><img src="images/menu.png"/></a></span>
+        </span>
+		
+         <div id="memberProfile" class="memberProfile">
+         <ul>
+          <li loop="$logged_info->menu_list=>$key,$val" cond="$key !='dispMemberSavedDocument'">
+
+          <a href="{getUrl('', 'act',$key, 'mid','')}">{Context::getLang($val)}<span>></span></a>
+          </li>
+              
+          <!--@if($layout_info->show_point=='yes')-->
+           {@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+           <li><a>{$lang->grade}: <font style="color: rgb(243, 5, 50);">{$level}</font>&nbsp;</a></li>
+           <li><a>{$lang->point}: <font style="color: rgb(243, 5, 50);">{$point}</font></a></li>
+           <!--@end-->
+           
+           <li class="logout"><a href="{getUrl('act','dispMemberLogout')}" >LOGOUT</a></li>
+        </ul>
+        </div>
+ 	 </div><!-- //header-->
+	</div><!-- //top -->
+
+<div class="main_shadow"></div>
+	<div class="middle_menu">
+       <div class="search_box3">
+            <form action="{getUrl()}" method="get">
+            <input type="hidden" name="vid" value="{$vid}" />
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+                 <span class="inputbox">
+                <input type="text" name="is_keyword" class="inputTypeText" value="{$is_keyword}" />
+                <input type="image" src="images/search3.png" class="is_submit" value="{$lang->cmd_search}"  />
+                </span>
+            </form>
+         </div><!-- search box3 end-->
+         <span class="member_span">
+        
+		 <!--@if($logged_info)-->
+           {@
+                $oDB = &DB::getInstance();
+                $query = $oDB->_query('select count(*) as count from xe_member_message where receiver_srl = '.$logged_info->member_srl.' AND readed = "N" limit 0, 30');
+                $result = $oDB->_fetch($query);
+                $newcount=(int)$result->count ;
+            }
+			
+             <a href="{getUrl('act','dispMemberInfo')}">{$lang->mypage}&nbsp;&bull;</a>
+	         <a href="{getUrl('act','dispMemberLogout')}" >LOGOUT</a>
+            
+        <!--@else-->
+        	<a onclick="showmodal();">LOGIN&nbsp;&bull;</a>
+            <a href="{getUrl('act','dispMemberSignUpForm')}">JOININ</a>
+        <!--@end-->
+         <a cond="$logged_info->is_admin==Y">({$lang->module_srl} : {$module_info->module_srl}) &nbsp;</a>
+        </span>
+         <div  class="clinenews">
+        <div style="margin-top:3px;"><img class="zbxe_widget_output" widget="newest_document" skin="line_ticker" colorset="white" order_target="list_order" order_type="desc" list_count="5" display_regdate="Y" module_srls="{$layout_info->module_srl_news}" /></div>
+    </div>    
+	</div>              
+
+<div  class="main">
+
+
+<!-- 모바일 메뉴-->
+ <div class="sub_gnb">
+        <ul>
+			<li loop="$main_menu->list=>$key1,$val1" class="sub_li">
+	       	<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" onfocus="this.blur();" >{$val1['link']}</a>
+            <!--@if($val1['list'])--><span><img src="images/down.png" /></span><!--@end-->
+		    	<ul  class="sub_lnb" cond="$val1['list']" >
+                	<li loop="$val1['list']=>$key2,$val2">
+	                <a href="{$val2['href']}" class="s1_a" target="_blank"|cond="$val2['open_window']=='Y'" onfocus="this.blur();">{$val2['text']}</a>
+                    </li>
+               	</ul>
+
+			 </li>
+             <li class="sub_language">
+             <a onclick="doChangeLangType('ko');return false;"<!--@if($lang_type =='ko')-->class="language_on"<!--@end-->>{$lang_supported[ko]}</a>
+             <a onclick="doChangeLangType('en');return false;" <!--@if($lang_type =='en')-->class="language_on"<!--@end-->>{$lang_supported[en]}</a>
+             </li>
+       </ul><!-- //sub gnb -->
+   </div>
+    <div id="contentBody">
+   
+	<!--@if($layout_info->layoutset == 'main')--> 
+	    <include target="main.html" />
+    <!--@else--> 
+    	<include target="sub.html" />
+    <!--@end-->
+        
+    </div><!--endof contentbody-->
+</div><!-- //main -->
+
+<div id="footer" class="footer">
+	{@$nfootmenu=count($foot_menu->list)}
+    {@ $i=1}
+    <div class="foot_menu_w_wrap">
+         <div class="foot_menu_w"> 
+    	     <ul cond="$nfootmenu>0" class="left_fmenu">
+                    <!--@foreach($foot_menu->list as $key => $val)--><li><a href="{$val['href']}" title="{$val['link']}">{$val['link']}</a><span class="vbar" cond="$nfootmenu != $i"}>|</span></li>
+                    {@ $i++}
+                   
+                    <!--@endforeach-->
+             </ul>
+             <span class="right_fcopy">
+             <span class="langueage_foot">
+               <a onclick="doChangeLangType('ko');return false;"><img src="images/korea.png" style="vertical-align:middle" /></a>
+               <a onclick="doChangeLangType('en');return false;"><img src="images/usa.png" /></a>
+             </span>
+                 <a>{$lang->copyright}  {$layout_info->copyright}&nbsp;{$lang->copyright1}</a>
+              </span>
+   		</div><!--@foot_menu_w-->	
+    </div>
+	<div class="footer_sitemap" cond="$layout_info->foot_map_select=='yes'">
+        <block cond="!$layout_info->foot_title1">{@$layout_info->foot_title1="Customer"}</block>
+        <block cond="!$layout_info->foot_title2">{@$layout_info->foot_title2="QuickMenu"}</block>
+        <block cond="!$layout_info->foot_title3">{@$layout_info->foot_title3="Contact"}</block>
+        <block cond="!$layout_info->foot_title4">{@$layout_info->foot_title4="Family Site"}</block>
+
+    	<ul class="maptable" >
+        <li class="map_item">
+        	<!--@if($layout_info->foot_logo_select=="logo")-->
+                <a href="{$layout_info->index_url}" ><img src="{$layout_info->foot_logo}" ></a>
+            <!--@else-->
+	            <p class="mapitem_title">{$layout_info->foot_title1}<span class="arrow"><img src="images/down.png" /></span></p>
+    		    <ul>
+    	    		<!--@foreach($quick_menu1->list as $key=>$val)--><li><a href="{$val['href']}" title="{$val['link']}">{$val['link']}</a></li>
+	    	        <!--@endforeach-->
+				</ul>
+            <!--@end-->
+        </li>
+        <li class="map_item"> <p class="mapitem_title">{$layout_info->foot_title2}<span class="arrow"><img src="images/down.png" /></span></p>
+        <ul>
+        	<!--@foreach($quick_menu2->list as $key=>$val)--><li><a href="{$val['href']}" title="{$val['link']}">{$val['link']}</a></li>
+            <!--@endforeach-->
+          </ul>
+		</li>
+        <li class="map_item"> <p class="mapitem_title">{$layout_info->foot_title3}<span class="arrow"><img src="images/down.png" /></span></p>
+        	<ul>
+  	        <li cond="$layout_info->company_name"><a>{$lang->companyname}:&nbsp;{$layout_info->company_name}</a></li>
+        	<li cond="$layout_info->tel"><a>TEL: {$layout_info->tel}</a></li>
+            <li cond="$layout_info->fax"><a>FAX: {$layout_info->fax}</a></li>
+            <li cond="$layout_info->email"><a>EMAIL : {$layout_info->email}</a></li>
+            <li cond="$layout_info->address" ><a>{$layout_info->address}</a></li>
+			<li cond="$layout_info->reg_number"><a>{$lang->reg_number1} : {$layout_info->reg_number}</a></li>
+            <li cond="$layout_info->reg_number2"><a>{$lang->reg_number2} : {$layout_info->reg_number2}</a></li>
+            </ul>
+           <!-- <p   cond="$layout_info->copyright">{$lang->copyright}  {$layout_info->copyright}{$lang->copyright1}</p>-->
+        </li>
+        <li class="map_item"> <p class="mapitem_title">{$layout_info->foot_title4}<span class="arrow"><img src="images/down.png" /></span></p>
+       		<ul>
+            <!--@if($layout_info->foot_familysite=='yes')-->
+                    <!--@foreach($family_menu->list as $key => $val)-->
+                	 <li><a href="{$val['href']}" target="_blank">{$val['link']}</a></li>
+			        <!--@endforeach-->
+            <!--@else-->
+            	<li class="sns">
+            	<a href="{$layout_info->sns_metoday}"><img src="images/meto.png" /></a>
+	            <a href="{$layout_info->sns_facebook}"><img src="images/facebook.png" /></a>
+    	        <a href="{$layout_info->sns_twitter}"><img src="images/twitter.png" /></a>
+        	    </li>
+             <!--@end-->
+            </ul>
+    	  </li>
+		</ul><!-- maptable-->
+
+    </div><!--@endof footer_sitemap-->
+
+
+ </div><!--end of footer-->
+</div><!-- //#wrap -->
+<script type="text/javascript">
+var menuidx=0;
+jQuery(function($){
+if('{$XE_VALIDATOR_MESSAGE}'&& ('{$XE_VALIDATOR_ID}'== 'layouts/imagemonster/login_modal/1'))
+	{
+		$('.login_window').fadeIn('slow');
+	}
+});
+
+function showmodal()
+{
+
+	if('{$XE_VALIDATOR_MESSAGE}'&& ('{$XE_VALIDATOR_ID}'== 'layouts/imagemonster/login_modal/1'))
+	{
+		document.getElementById('error').style.display ="none";
+	}	
+	$('.login_window').fadeIn('slow');	
+}
+
+</script>
+
+<!-- login modal window-->
+{@$member_config=MemberModel::getMemberConfig();$identifierForm->name=$member_config->identifier;} 
+
+<div class="login_window" cond="!$is_logged" >
+	<div class="login_box">
+    	
+	    <div class="login_title">LOGIN <img src="images/colse2.gif" class="close" onclick="jQuery('.login_window').fadeOut('slow')" /> 
+	    </div>
+
+		<div class="login_content">
+                       
+            <div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'layouts/imagemonster/login_modal/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}" >
+			<p>{$XE_VALIDATOR_MESSAGE}</p>
+			</div>    
+    
+			<form id="fo_member_login" action="./" method="post" ruleset="@login">
+			<input type="hidden" name="act" value="procMemberLogin" />
+			<input type="hidden" name="success_return_url" value="{$referer_url}" />
+			<input type="hidden" name="xe_validator_id" value="layouts/imagemonster/login_modal/1" />            
+                    <table class="id_pw_wrap">
+                    <colgroup>
+                    <col width="20%" />
+                    <col width="80%" />
+                    </colgroup>
+                    <tr>
+                    <td><label for="user_id" style="cursor:pointer;">EMAIL</label></td>
+                    <td><input name="user_id" type="text" id="user_id" class="IdPWD" /></td>
+                    </tr>
+                    <tr>
+                    <td><label for="password" style="cursor:pointer;">PASSWORD<!--//로그인유지--></label></td>
+					<td><input name="password" type="password"  class="IdPWD" /></td>
+                    </tr>
+                    <tr><td></td>
+                    <td style="padding-top:0.5em"><input name="keep_signed" id="keep_signed" type="checkbox" value="Y" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');" />
+						<label for="keep_signed" style="cursor:pointer;">{$lang->keep_login}<!--//로그인유지--></label>
+						<input name="" type="submit" value="{$lang->submit_login}" class="submit" />
+                     </td>
+                     </tr>
+                    </table>
+				</form>
+				
+				<div class="btn_nav">
+					<a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->signup}</a>
+					<a href="{getUrl('act','dispMemberFindAccount')}">{$lang->findID}</a>
+                    <a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->authMail}</a>
+				</div>
+			</div>
+		</div>
+</div>
+

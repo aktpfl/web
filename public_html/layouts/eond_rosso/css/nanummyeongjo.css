@@ -1,0 +1,13 @@
+/*
+ * Nanum Myeongjo (Korean) http://www.google.com/webfonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/NanumMyeongjo-Regular.eot);
+  src: url(../font/NanumMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+       url(../font/NanumMyeongjo-Regular.woff2) format('x-woff2'),
+       url(../font/NanumMyeongjo-Regular.woff) format('woff'),
+       url(../font/NanumMyeongjo-Regular.ttf) format('truetype');
+}

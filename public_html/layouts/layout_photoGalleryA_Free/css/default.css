@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* eyepress (http://eyepress.co.kr) */
+
+
+/* default setting */
+body, h1, h2, h3, h4, h5, ul, li, dl, dt, dd{margin:0; padding:0}
+ul {list-style:none; margin:0; padding:0}
+body, div, dt, dd, li, p, th, td, input, textarea, select {font-family:arial, dinmed, verdana, helvetica, 나눔고딕, 돋움, 굴림; font-size:12px; color:#717171; line-height:24px} 
+a{color:#717171; text-decoration:none}
+a:hover {color:#FFFFFF; text-decoration:underline}
+
+
+/* body */
+body {background:#111111; margin:0; padding:0}
+#bodyWrap {width:1200px; margin:0 auto; position:relative}
+
+
+/* header */
+#header {width:1200px; height:61px; background:url(../images/header_bg.jpg) center bottom repeat-y; position:relative; *zoom:1; overflow:hidden; position:absolute; z-index:10}
+#header h1{margin-right:50px; padding-left:132px; display:inline-block; float:left}
+#header ul#gnb{float:left; padding-top:25px}
+#header ul#gnb li{float:left; margin-right:20px}
+#header ul#gnb li a{color:#FFFFFF; font-weight:bold}
+#header ul#gnb li a:hover{color:#ff0000; text-decoration:none}
+#header ul#gnb li.on{color:#ff0000}
+#header ul#topnavi{position:absolute; right:133px; top:10px;}
+#header ul#topnavi li{float:left; margin-left:20px}
+
+
+/* inside */
+#inside {width:1200px; padding:10px 0; margin-top:61px; *zoom:1; overflow:hidden; position:absolute; z-index:5}
+#inside .welcome {float:left; padding-left:132px}
+#inside .home {float:right; padding-right:132px}
+
+
+/* content */
+#contentbody {background:url(../images/contentbody_bg.jpg) center top no-repeat; width:1200px; padding-top:20px; padding-top:1px; margin-top:95px; position:absolute; z-index:1}
+
+
+#contentbody #content {background:url(../images/content_bg.jpg) center top repeat-y #161616; width:1200px; padding-bottom:20px}
+#contentbody #content .contentpage {width:935px; padding-left:132px; padding-top:50px; *zoom:1; overflow:hidden}
+
+
+/*footer*/
+#footer {width:1200px; background:url(../images/footer_bg.jpg) center top repeat-y; *zoom:1; overflow:hidden}
+#footer .copyright{padding:60px 0 30px 30px; width:975px; margin:0 auto}
+
+

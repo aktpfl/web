@@ -1,0 +1,64 @@
+<load target="./css/widget.css"  />
+<load target="./css/owl.carousel.css"/>
+<load target="./css/owl.theme.css"/>
+
+{@ $_slider_id = "photoslider_".mt_rand(0, 100000) }
+
+<block cond="!($widget_info->lazy_load)">{$widget_info->lazy_load="true"}</block>
+
+<div class="widgetContainer">
+ <div class="widgetGalleryA">
+{@$_idx=0}
+	 <div class="owl-carousel" id="{$_slider_id}">
+    <!--@foreach($widget_info->content_items as $key => $item)-->
+	    <div class="item">
+        <a href="{$item->getLink()}">
+        <!--@if($item->getThumbnail(300,200,'crop'))-->
+        	<!--@if($widget_info->lazy_load=='true')--><img class="lazyOwl" data-src="{$item->getThumbnail(300,200,'crop')}">
+            <!--@else--> <img src="{$item->getThumbnail(300,200,'crop')}" />
+            <!--@end-->
+            
+    	<!--@else--><span class="imgNone">{$lang->none_image}</span>
+        <!--@end-->
+        </a>
+   		</div><!--end of item-->
+    	{@$_idx++}
+    <!--@end--><!--foreach-->
+	</div><!--owl-carousel-->
+ </div><!--gallerya-->
+</div><!--widgetcontainer-->
+
+<script src="./js/owl.carousel.js"></script>
+{@ $imageURL = getUrl()."widgets/photoslider/skins/imageslider/img/"}
+
+   <style>
+    .owl-carousel .item{ width:100%;  }
+    .owl-carousel .item img{
+        display: block;
+        width: 98%;
+        height: auto;
+		margin:0; padding:0;
+		border:solid 2px #fff;
+		padding-bottom:2px;
+		
+
+		/*margin:0 auto;*/
+    }
+    </style>
+
+    <script>
+    $(document).ready(function() {
+      $('#{$_slider_id}').owlCarousel({
+        items : {$widget_info->wide_count},
+        itemsDesktop : [1199,{$widget_info->count_1199}],
+        itemsDesktopSmall : [979,{$widget_info->count_979}],
+		itemsTablet: [768,{$widget_info->count_768}],
+		itemsMobile : [479,{$widget_info->count_479}],
+		singleItem:{$widget_info->singleitem},
+		slideSpeed:{$widget_info->slidespeed},
+		lazyLoad :{$widget_info->lazy_load},
+		navigationPath:"{$imageURL}"
+      });
+    });
+    </script>
+

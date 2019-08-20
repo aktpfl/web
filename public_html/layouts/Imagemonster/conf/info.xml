@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">ImageMonster 레이아웃</title>
+    <title xml:lang="en">ImageMonster website layout</title>
+    <description xml:lang="ko">
+        ImageMonster 레이아웃입니다.
+        제작 : ORANGETREE
+    </description>
+    <description xml:lang="en">
+        This layout is the Official website layout for XE.
+        제작 : orangetree
+    </description>
+    <version>2.1</version>
+    <date>2014-9-30</date>
+    <link> </link>
+
+    <author email_address="pksun98@gmail.com" link="http://orangetree.dothome.co.kr/xe">
+        <name xml:lang="ko">ORANGETREE</name>
+        <name xml:lang="en">ORANGETREE</name>
+    </author>
+
+    <extra_vars>
+	<group>
+	 <title xml:lang="ko">1. 기본설정</title>
+	 <title xml:lang="en">1. layout</title>
+	
+
+	 
+       	 <var name="layoutset" type="select"  default="main">
+               <title xml:lang="ko">1. 레이아웃</title>
+		       <title xml:lang="en">1. layout type</title>
+
+			   <options value="main">
+                    <title xml:lang="ko">1.메인 레이아웃</title>
+					<title xml:lang="en">1.main layout</title>
+               </options>
+			   <options value="sub1">
+			   		<title xml:lang="ko">2.서브-1단[공통영역+본문+하단]</title>
+                    <title xml:lang="en">2.colume[top+content+footer]</title>
+               </options>
+               <options value="sub2">
+                    <title xml:lang="ko">3.서브-2단[공통영역+좌측본문+하단]</title>
+                    <title xml:lang="en">3.colume[top+left(content)+footer]</title>
+               </options>
+          </var>
+		  <var name="layout_acolor_set" type="text">
+            <title xml:lang="ko"> - 레이아웃 엑센트 색상</title>
+            <title xml:lang="en"> - layout accent color</title>
+			<description xml:lang="ko">레이아웃 전체의 액센트 칼라를 입력하세요(#fff 형태)</description>
+			<description xml:lang="en">Input layout accent color(#fff)</description>
+        </var>
+		  
+	  
+		  <var name="layout_acolor_hoverset" type="text">
+               <title xml:lang="ko">- 레이아웃 엑센트 hover색상</title>
+		       <title xml:lang="en">- layout accent hover color</title>
+
+               <description xml:lang="ko">예를 들면, 엑센트로 지정된 칼라의 버튼위를 마우스가 움직일때 버튼의 글자에 사용할 칼라을 선택해주세요</description>
+               <description xml:lang="en">choose hover text color in layout accent color</description>
+          </var>
+		
+			 <var name="show_point" type="select">
+               <title xml:lang="ko">3. 포인트/등급 보여주기선택</title>
+               <title xml:lang="en">3. choose whether you will show POINT and LEVEL</title>
+               <description xml:lang="ko">포인트와 등급을 보여줄건지 선택하세요(회원모듈스킨을 response_member사용시만 화면에 보여집니다)</description>
+               <description xml:lang="en">choose whether you will show POINT and LEVEL(You can use this option only response_member module skin)</description>
+               <options value="yes">
+                  <title xml:lang="ko">yes</title>
+				  <title xml:lang="en">yes</title>
+                    <value>yes</value>
+               </options>
+               <options value="no">
+                  	<title xml:lang="ko">no</title>
+			    	<title xml:lang="en">no</title>
+                    <value>no</value>
+               </options>
+			 </var>
+			 
+			 <var name="logo_image" type="image">
+            <title xml:lang="ko">4. 로고 이미지</title>
+            <title xml:lang="en">4. Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고 이미지를 입력하세요.</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the LOGO of layout.</description>
+        </var>
+        <var name="logo_image_alt" type="text">
+            <title xml:lang="ko"> - 로고 이미지 alt</title>
+            <title xml:lang="en"> - Logo image alt</title>
+			<description xml:lang="ko">로고 이미지의 alt 텍스트. 로고 이미지를 표시하지 않는 경우 대체 텍스트를 표시합니다.</description>
+			<description xml:lang="en">로고 이미지의 alt 텍스트. 로고 이미지를 표시하지 않는 경우 대체 텍스트를 표시합니다.</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko"> - 홈 페이지 URL</title>
+            <title xml:lang="en"> - Homepage URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+        </var>
+		</group>
+
+		<group>
+		 <title xml:lang="ko">2. 탑영역/메뉴/검색박스 설정</title>
+		 <title xml:lang="en">2. top section/menu/search box setting</title>
+		 
+ 		<var name="top_backcolor" type="text">
+            <title xml:lang="ko">1. 탑영역 배경색상</title>
+            <title xml:lang="en">1. Top background color</title>
+            <description xml:lang="ko">배경색상을 입력하세요(#fff 형태)</description>
+            <description xml:lang="en">Please input top background color(#fff type)</description>
+        </var>
+
+
+		 <var name="menu1_tcolor" type="text">
+            <title xml:lang="ko">2. 1차 메뉴 글자색상</title>
+            <title xml:lang="en">2. text color for menu items</title>
+            <description xml:lang="ko">1차메뉴 글자색상을 입력하세요(ex:#ffffff)</description>
+            <description xml:lang="en">Please input the text color in 1st menu</description>
+		 </var> 
+		
+		 <var name="menu1_bcolor" type="text">
+             <title xml:lang="ko">3. 1차메뉴 강조배경색상</title>
+            <title xml:lang="en">3. background color color for 1st menu</title>
+            <description xml:lang="ko">마우스가 해당 메뉴를 가리킬때의 메뉴의 배경색상을 입력하세요(ex:#ffffff)</description>
+            <description xml:lang="en">Please input the background color when menu hover</description>
+		 </var> 
+ 		 <var name="menu1_acolor" type="text">
+             <title xml:lang="ko">4. 1차메뉴 글자강조색상</title>
+            <title xml:lang="en">4. text accent color for menu item</title>
+            <description xml:lang="ko">마우스가 해당 메뉴를 가리킬때의 글자 강조색상을 입력하세요(ex:#ffffff)</description>
+            <description xml:lang="en">Please input the text accent color when menu hover</description>
+		 </var> 
+		 <var name="menu2_acolor" type="text">
+             <title xml:lang="ko">5. 2차메뉴에서 글자강조색상</title>
+            <title xml:lang="en">5. text accent color for 2nd menu item</title>
+            <description xml:lang="ko">마우스가 2차메뉴에서 움직일시 글자 강조색상을 입력하세요(ex:#ffffff)</description>
+            <description xml:lang="en">Please input the text accent color when 2nd menu hover</description>
+		 </var> 
+		 <var name="menusub_acolor" type="text">
+             <title xml:lang="ko">6. 모바일에서 메뉴강조색상</title>
+            <title xml:lang="en">6. text accent color in mobile view</title>
+            <description xml:lang="ko">모바일에서 마우스가 메뉴를 가르킬때의 글자 강조색상을 입력하세요(ex:#ffffff)</description>
+            <description xml:lang="en">Please input the text accent color in mobile view</description>
+		 </var> 
+		
+		<var name="top_ad" type="image">
+             <title xml:lang="ko">7. top영역 배너</title>
+            <title xml:lang="en">7. banner in top sectio</title>
+            <description xml:lang="ko">top영역의 배너이미지</description>
+            <description xml:lang="en">banner image in top section</description>
+		 </var> 		 
+ 		<var name="top_ad_color" type="text">
+             <title xml:lang="ko">-. top영역 배너배경색상</title>
+            <title xml:lang="en">-. banner background color in top sectio</title>
+            <description xml:lang="ko">top영역의 배너배경색상(#fff형태로 넣어주세요)</description>
+            <description xml:lang="en">banner background color in top section(#fff type)</description>
+		 </var> 		 
+		 <var name="top_ad_url" type="text">
+             <title xml:lang="ko">-. top영역 배너url</title>
+            <title xml:lang="en">-. banner url in top sectio</title>
+            <description xml:lang="ko">배너를 누를때 이동할 Url을 넣어주세요</description>
+            <description xml:lang="en">Input the Url to move when you click the banner</description>
+		 </var> 		 
+		 
+		</group>
+
+		<group>		
+        <title xml:lang="ko">3.메인 포토슬라이드 설정</title>
+		<title xml:lang="en">3.setting main photo slider </title>
+		<description xml:lang="ko">전광판에 나타낼 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상)</description>
+		<description xml:lang="en">Please input the module srl to show in news line ticker</description>
+
+		<var name="module_srl1" type="text">
+           	<title xml:lang="ko">1.모듈 srl</title>
+            <title xml:lang="en">1. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to 1st slide. read menual</description>
+		</var>
+		<var name="wcode1" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML 코드 </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		
+		<var name="module_srl2" type="text">
+           	<title xml:lang="ko"> 2. 모듈 srl</title>
+            <title xml:lang="en"> 2. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to second slide. read menual</description>
+		</var>
+		<var name="wcode2" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		
+		<var name="module_srl3" type="text">
+           	<title xml:lang="ko">3. 모듈 srl</title>
+            <title xml:lang="en">3. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to third slide. read menual</description>
+		</var>
+		<var name="wcode3" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		
+		<var name="module_srl4" type="text">
+           	<title xml:lang="ko">4. 모듈 srl</title>
+            <title xml:lang="en">4. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to fouth slide. read menual</description>
+		</var>
+		<var name="wcode4" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		<var name="module_srl5" type="text">
+           	<title xml:lang="ko">5. 모듈 srl</title>
+            <title xml:lang="en">5. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to fifth slide. read menual</description>
+		</var>
+		<var name="wcode5" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+	
+		<var name="module_srl6" type="text">
+           	<title xml:lang="ko">6. 모듈 srl</title>
+            <title xml:lang="en">6. module srl</title>
+            <description xml:lang="ko">슬라이드 위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to sixth slide. read menual</description>
+		</var>
+		<var name="wcode6" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		
+		<var name="module_srl7" type="text">
+           	<title xml:lang="ko">7. 모듈 srl</title>
+            <title xml:lang="en">7. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to seventh slide. read menual</description>
+		</var>
+		<var name="wcode7" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+
+		<var name="module_srl8" type="text">
+           	<title xml:lang="ko">8. 모듈 srl</title>
+            <title xml:lang="en">8. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to eightth slide. read menual</description>
+		</var>
+		<var name="wcode8" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		<var name="module_srl9" type="text">
+           	<title xml:lang="ko">9. 모듈 srl</title>
+            <title xml:lang="en">9. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to nineth slide. read menual</description>
+		</var>
+		<var name="wcode9" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+
+		<var name="module_srl10" type="text">
+           	<title xml:lang="ko">10. 모듈 srl</title>
+            <title xml:lang="en">10. module srl</title>
+            <description xml:lang="ko">슬라이드위젯을 사용하려면 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to tenth slide. read menual</description>
+		</var>
+		<var name="wcode10" type="textarea" >
+			<title xml:lang="ko"> - 위젯/HTML code </title>
+			<title xml:lang="en"> - widget/HTML code</title>
+			<description xml:lang="ko">다른 위젯을 사용하려면 위젯의 코드또는 HTML코드를 입력해주세요(위젯코드를 입력하면 위의 모듈srl은 무시됩니다.모듈srl과 위젯코드를 입력하지 않으면 이 위젯은 사용하지 않음으로 설정됩니다)</description>
+            <description xml:lang="en">Input the widget code(refer menual)</description>
+		</var>
+		
+		<var name="ticker_title" type="text">
+           	<title xml:lang="ko">11. 뉴스티커 제목</title>
+            <title xml:lang="en">11. newsticker title</title>
+            <description xml:lang="ko">뉴스티커의 제목을 입력하세요</description>
+            <description xml:lang="en">Please input the title of news ticker</description>
+		</var>
+
+		<var name="module_srl_news" type="text">
+           	<title xml:lang="ko">- 뉴스티커 모듈 srl</title>
+            <title xml:lang="en">- newsticker module srl</title>
+            <description xml:lang="ko">뉴스티커의 모듈srl을 입력하세요(콤마로 모듈 복수 등록, 입력하지 않으면 전체 모듈 대상.메뉴얼을 꼭!꼭! 참조하세요)</description>
+            <description xml:lang="en">Please input the module srl to news ticker</description>
+		</var>
+
+		</group>
+		
+		
+		<group>
+		<title xml:lang="ko">4. 서브 레이아웃 왼쪽 사이드 설정</title>
+		<title xml:lang="en">4. side setting of 2column layout</title>
+
+		<var name="sidetitle_bcolor" type="text">
+			<title xml:lang="ko">1. 왼쪽 상단 큰제목의 바탕색상</title>
+			<title xml:lang="en">1. background color in side menu title </title>
+			<description xml:lang="ko">왼쪽 사이드의 큰제목 배경색상(#ffffff 형태)</description>
+            <description xml:lang="en">background color in side menu title(#ffffff).</description>
+		</var>
+		<var name="sidetitle_tcolor" type="text">
+			<title xml:lang="ko">- 왼쪽 상단 큰제목의 글자색상</title>
+			<title xml:lang="en">- text color in side menu title </title>
+			<description xml:lang="ko">왼쪽 사이드의 큰제목 글자색상(#ffffff 형태)</description>
+            <description xml:lang="en">text color in side menu title(#ffffff).</description>
+		</var>
+
+		
+		<var name="sidewidget1" type="textarea">
+            <title xml:lang="ko">2 side 위젯1: 위젯코드</title>
+            <title xml:lang="en">2 side widget1</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="sidewidget1_b" type="select" default="no">
+            <title xml:lang="ko"> - 테두리 설정</title>
+            <title xml:lang="en"> - widget1 border setting</title>
+            <description xml:lang="ko">테두리 사용여부를 결정하세요</description>
+            <description xml:lang="en">Please set the widget border.</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+		<var name="sidewidget1_t" type="text">
+            <title xml:lang="ko"> - 제목</title>
+            <title xml:lang="en"> - title</title>
+            <description xml:lang="ko">side위젯의 제목을 입력해주세요</description>
+            <description xml:lang="en">Please input the widget title</description>
+		</var>
+
+		<var name="sidewidget2" type="textarea">
+            <title xml:lang="ko">3. side 위젯2 : 위젯코드</title>
+            <title xml:lang="en">3. side widget2 : widget codde</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="sidewidget2_b" type="select" default="no">
+            <title xml:lang="ko"> - 테두리 설정</title>
+            <title xml:lang="en"> - border setting</title>
+            <description xml:lang="ko">테두리 사용여부를 결정하세요</description>
+            <description xml:lang="en">Please set the widget border.</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+		<var name="sidewidget2_t" type="text">
+            <title xml:lang="ko"> - 제목</title>
+            <title xml:lang="en"> - title</title>
+            <description xml:lang="ko">side위젯의 제목을 입력해주세요</description>
+            <description xml:lang="en">Please input the widget title</description>
+		</var>
+
+		<var name="sidewidget3" type="textarea">
+            <title xml:lang="ko">4. side 위젯3 : 위젯코드</title>
+            <title xml:lang="en">4. side widget3 : widget code</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="sidewidget3_b" type="select" default="no">
+            <title xml:lang="ko"> - 테두리 설정</title>
+            <title xml:lang="en"> - widget border setting</title>
+            <description xml:lang="ko">테두리 사용여부를 결정하세요</description>
+            <description xml:lang="en">Please set the widget border.</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+		<var name="sidewidget3_t" type="text">
+            <title xml:lang="ko"> - 제목</title>
+            <title xml:lang="en"> - title</title>
+            <description xml:lang="ko">side위젯의 제목을 입력해주세요</description>
+            <description xml:lang="en">Please input the widget title</description>
+		</var>
+
+		<var name="sidewidget4" type="textarea">
+            <title xml:lang="ko">5. side 위젯4 : 위젯코드</title>
+            <title xml:lang="en">5. side widget4 : widget code</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="sidewidget4_b" type="select" default="no">
+            <title xml:lang="ko"> - 테두리 설정</title>
+            <title xml:lang="en"> - widget border setting</title>
+            <description xml:lang="ko">테두리 사용여부를 결정하세요</description>
+            <description xml:lang="en">Please set the widget border</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+		<var name="sidewidget4_t" type="text">
+            <title xml:lang="ko"> - 제목</title>
+            <title xml:lang="en"> - title</title>
+            <description xml:lang="ko">side위젯의 제목을 입력해주세요</description>
+            <description xml:lang="en">Please input the widget title</description>
+		</var>
+		
+		<var name="sidead1" type="image">
+            <title xml:lang="ko">6. side 배너1</title>
+            <title xml:lang="en">6. side banner1</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner1</description>
+		</var>
+		<var name="sidead1_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner1 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner1</description>
+		</var>
+		<var name="sidead1_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - side banner1 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner1</description>
+		</var>
+
+		<var name="sidead2" type="image">
+            <title xml:lang="ko">7. side 배너2</title>
+            <title xml:lang="en">7. side banner2</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로 173px)</description>
+            <description xml:lang="en">Please input a image in sode banner2</description>
+		</var>
+		<var name="sidead2_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner2 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner2</description>
+		</var>
+		<var name="sidead2_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner2 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner2</description>
+		</var>
+
+		<var name="sidead3" type="image">
+            <title xml:lang="ko">8 side 배너3</title>
+            <title xml:lang="en">8 side banner3</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner3</description>
+		</var>
+		<var name="sidead3_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner3 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner3</description>
+		</var>
+		<var name="sidead3_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner3 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner3</description>
+		</var>
+
+		<var name="sidead4" type="image">
+            <title xml:lang="ko">9. side 배너4</title>
+            <title xml:lang="en">9. side banner4</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner4</description>
+		</var>
+		<var name="sidead4_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner4 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner4</description>
+		</var>
+		<var name="sidead4_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner4 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner4</description>
+		</var>
+		<var name="sidead5" type="image">
+            <title xml:lang="ko">10. side 배너5</title>
+            <title xml:lang="en">10. side banner5</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner5</description>
+		</var>
+		<var name="sidead5_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner5 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner5</description>
+		</var>
+		<var name="sidead5_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner4 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner5</description>
+		</var>
+		<var name="sidead6" type="image">
+            <title xml:lang="ko">11. side 배너6</title>
+            <title xml:lang="en">11. side banner6</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner6</description>
+		</var>
+		<var name="sidead6_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner6 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner6</description>
+		</var>
+		<var name="sidead6_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner6 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner6</description>
+		</var>
+		<var name="sidead7" type="image">
+            <title xml:lang="ko">12. side 배너7</title>
+            <title xml:lang="en">12. side banner7</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner7</description>
+		</var>
+		<var name="sidead7_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner7 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner7</description>
+		</var>
+		<var name="sidead7_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner7 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner7</description>
+		</var>
+		<var name="sidead8" type="image">
+            <title xml:lang="ko">13. side 배너8</title>
+            <title xml:lang="en">13. side banner8</title>
+            <description xml:lang="ko">side 배너에 넣을 이미지를 입력해주세요.(가로:173px)</description>
+            <description xml:lang="en">Please input a image in sode banner8</description>
+		</var>
+		<var name="sidead8_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - banner8 alt</title>
+            <description xml:lang="ko">side 배너에 넣을 alt를 입력해주세요.</description>
+            <description xml:lang="en">Please input a alt in side banner8</description>
+		</var>
+		<var name="sidead8_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - banner8 url</title>
+            <description xml:lang="ko">배너 클릭시 이동할 URL를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in side banner8</description>
+		</var>
+
+		</group>
+		<group>
+		<title xml:lang="ko">5. 서브 레이아웃 오른쪽메인설정</title>
+		<title xml:lang="en">5. setting banner and widget in main content section</title>
+		
+		<var name="contentbantop" type="image">
+            <title xml:lang="ko"> 1.메인영역 상단 배너 이미지</title>
+            <title xml:lang="en"> 1 banner image in content section </title>
+            <description xml:lang="ko">메인영역 상단에 이미지 배너를 넣을때 입력해주세요.(가로:~735px이하: 숫자만 입력하세요)</description>
+            <description xml:lang="en">Please input a image in content banner(width:~785px)</description>
+		</var>
+
+		<var name="contentbantop_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - top banner alt in content section</title>
+            <description xml:lang="ko">메인영역 상단 이미지 배너의 alt를 입력해주세요</description>
+            <description xml:lang="en">Please input a alt in content top banner</description>
+		</var>
+		<var name="contentbantop_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - top banner url in content section</title>
+            <description xml:lang="ko">배너 클릭시 이동할 Url를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in content top banner.</description>
+		</var>
+
+
+		<var name="contentwidtop" type="textarea">
+            <title xml:lang="ko">2 메인영역 상단위젯코드</title>
+            <title xml:lang="en">2 top widget in content section</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="contentwidtop_width" type="text">
+            <title xml:lang="ko"> - 위젯 가로넓이</title>
+            <title xml:lang="en"> - top widget width in content section</title>
+            <description xml:lang="ko">위젯 가로넓이를 입력해주세요(735px이하, 숫자만 입력)</description>
+            <description xml:lang="en">Please input the widget width(input just number)</description>
+		</var>
+
+		<var name="contentwidtop_b" type="select" default="no">
+            <title xml:lang="ko"> - 위젯 테두리 설정</title>
+            <title xml:lang="en"> - top widget border setting</title>
+            <description xml:lang="ko">위젯의 테두리사용여부를 선택하세요</description>
+            <description xml:lang="en">Please set the widget border line</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+
+		<var name="contentwidbot" type="textarea">
+            <title xml:lang="ko">3. 메인영역 하단위젯코드</title>
+            <title xml:lang="en">3. bottom widget code in content section</title>
+            <description xml:lang="ko">위젯코드를 입력해주세요</description>
+            <description xml:lang="en">Please input the widget code</description>
+		</var>
+		<var name="contentwidbot_width" type="text">
+            <title xml:lang="ko"> - 위젯 가로넓이</title>
+            <title xml:lang="en"> - bottom widget width in content section</title>
+            <description xml:lang="ko">위젯 가로넓이를 입력해주세요(735px이하로, px단위 숫자만 입력)</description>
+            <description xml:lang="en">Please input the bottom widget width(input just number)</description>
+		</var>
+
+		<var name="contentwidbot_b" type="select" default="no">
+            <title xml:lang="ko"> - 테두리 설정</title>
+            <title xml:lang="en"> - bottom widget border setting</title>
+            <description xml:lang="ko">하단위젯의 테두리사용여부를 선택하세요</description>
+            <description xml:lang="en">Please set the widget border line</description>
+			<options value="no">
+				<title xml:lang="ko">테두리 사용안함</title>
+				<title xml:lang="en">No border line</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">테두리 사용</title>
+				<title xml:lang="en">use border line</title>
+			</options>
+		</var>
+		<var name="contentbanbot" type="image">
+            <title xml:lang="ko"> 4 메인영역 하단 배너 이미지</title>
+            <title xml:lang="en"> 4 bottom banner image in content section </title>
+            <description xml:lang="ko">하단에 배너를 넣을시 이미지를 입력해주세요.(가로:~735px이하, px단위, 숫자만 입력)</description>
+            <description xml:lang="en">Please input a image in content bottom banner(width:~985px)</description>
+		</var>
+
+		<var name="contentbanbot_alt" type="text">
+            <title xml:lang="ko"> - alt</title>
+            <title xml:lang="en"> - bottom banner alt in content section</title>
+            <description xml:lang="ko">하단배너의 alt를 입력해주세요</description>
+            <description xml:lang="en">Please input a alt in content bottom banner</description>
+		</var>
+		<var name="contentbanbot_url" type="text">
+            <title xml:lang="ko"> - 링크</title>
+            <title xml:lang="en"> - bottom banner url in content section</title>
+            <description xml:lang="ko">하단배너 클릭시 이동할 url를 입력해주세요(http://~~)</description>
+            <description xml:lang="en">Please input a url in content bottom banner.</description>
+		</var>
+		</group>
+
+		<group>
+		<title xml:lang="ko">6. 푸터 설정</title>
+		<title xml:lang="en">6. footer setting</title>
+
+		<var name="foot_bcolor" type="text">
+            <title xml:lang="ko">1. 푸터 배경색</title>
+            <title xml:lang="en">1. footer background color</title>
+            <description xml:lang="ko">footer의 배경0색을 입력하세요(#000000)</description>
+            <description xml:lang="en">Please input the footer background color(#000000)</description>
+		</var>
+		<var name="foot_tcolor" type="text">
+            <title xml:lang="ko">- 푸터 내용 글자색</title>
+            <title xml:lang="en">- footer content text color</title>
+            <description xml:lang="ko">footer의 내용글자색을 입력하세요(#000000, 사이트맵 내용/copyrght 글자색)</description>
+            <description xml:lang="en">Please input the footer content text color(#000000, Quick content/copyright text color)</description>
+		</var>
+
+		<var name="foot_linecolor" type="text">
+            <title xml:lang="ko">- 푸터 가로라인색</title>
+            <title xml:lang="en">- footer line color</title>
+            <description xml:lang="ko">foot메뉴 아래의 라인색을 입력하세요(기본:#dddddd)</description>
+            <description xml:lang="en">Please input the footer line color(default:#dddddd)</description>
+		</var>
+		
+		<var name="footmenu_title" type="text">
+            <title xml:lang="ko">- 푸터메뉴 제목</title>
+            <title xml:lang="en">- footer menu title</title>
+            <description xml:lang="ko">foot메뉴 제목을 입력하세요</description>
+            <description xml:lang="en">Please input the footer menu title</description>
+		</var>
+		
+
+
+		<var name="foot_map_select" type="select" default="no">
+            <title xml:lang="ko"> 2. 푸터 사이트맵 사용여부</title>
+            <title xml:lang="en"> 2. select use footer Quick</title>
+            <description xml:lang="ko">푸터 사이트맵 사용여부를 선택하세요(사용할경우에만 아래를 셋팅하세요)</description>
+            <description xml:lang="en">select use Quick menu(set the next items, when you use this option)</description>
+			<options value="no">
+				<title xml:lang="ko">사용안함</title>
+				<title xml:lang="en">do not use Quick menu</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">사용</title>
+				<title xml:lang="en">use Quick menu</title>
+			</options>
+		</var>
+
+		<var name="foot_title1" type="text">
+            <title xml:lang="ko">- 사이트맵의 첫번째항목의 제목(ex:Customer)</title>
+            <title xml:lang="en">- first title in footer sitemap(ex:Customer)</title>
+            <description xml:lang="ko">footer영역에 첫번째 항목의 제목를 넣어주세요(입력하지 않으면 Customer,[로고위치 입력항목]에 [메뉴]선택시 입력하세요 )</description>
+            <description xml:lang="en">Please input the first item title in footer sitemap(default:QUICK MENU1, input this option when you choose [menu] in [select item in logo position])</description>
+		</var>
+
+		<var name="foot_title2" type="text">
+            <title xml:lang="ko">- 사이트맵의 두번째항목의 제목(ex:QuickMenu)</title>
+            <title xml:lang="en">- second title in footer sitemap(ex:QuickMenu)</title>
+            <description xml:lang="ko">footer영역에 두번째 항목의 제목를 넣어주세요(입력하지 않으면 QuickMenu 사용)</description>
+            <description xml:lang="en">Please input the second item title in footer sitemap(default:QuickMenu)</description>
+		</var>
+		<var name="foot_title3" type="text">
+            <title xml:lang="ko">- 사이트맵의 세번째항목의 제목(ex:CONTACT)</title>
+            <title xml:lang="en">- third title in footer sitemap(ex:CONTACT)</title>
+            <description xml:lang="ko">footer영역에 세번째 항목의 제목를 넣어주세요(입력하지 않으면 CONTACT 사용)</description>
+            <description xml:lang="en">Please input the third item title in footer sitemap(default:CONTACT)</description>
+		</var>
+		<var name="foot_title4" type="text">
+            <title xml:lang="ko">- 사이트맵의 네번째항목의 제목(ex:FAMILY SITE)</title>
+            <title xml:lang="en">- fourth title in footer sitemap(ex::FAMILY SITE)</title>
+            <description xml:lang="ko">footer영역에 네번째 항목의 제목를 넣어주세요(입력하지 않으면 :FAMILY SITE 사용)</description>
+            <description xml:lang="en">Please input the fourth item title in footer sitemap(default::FAMILY SITE)</description>
+		</var>
+		
+		<var name="foot_logo_select" type="radio" default="no">
+            <title xml:lang="ko">(1) 사이트맵 첫번째 입력항목</title>
+            <title xml:lang="en">(1) select item in sitemap first position</title>
+            <description xml:lang="ko">사이트맵의 첫번째 위치에 입력항목을 선택하세요</description>
+            <description xml:lang="en">select input item in sitemap first position</description>
+			<options value="logo">
+				<title xml:lang="ko">이미지</title>
+				<title xml:lang="en">image</title>
+			</options>
+			<options value="menu">
+				<title xml:lang="ko">메뉴</title>
+				<title xml:lang="en">menu</title>
+			</options>
+		</var>
+
+		<var name="foot_logo" type="image">
+            <title xml:lang="ko">- 이미지입력</title>
+            <title xml:lang="en">- input image</title>
+            <description xml:lang="ko">위의 첫번째 입력 항목에 이미지를 선택시 이미지를 넣어주세요</description>
+            <description xml:lang="en">Please input the footer image</description>
+		</var>
+		<var name="company_name" type="text">
+            <title xml:lang="ko">(2)푸터사이트맵내용: 상호명</title>
+            <title xml:lang="en">(2) footer Quick content : company name</title>
+            <description xml:lang="ko">상호를 입력해 주세요</description>
+            <description xml:lang="en">Please input the company name</description>
+		</var>
+		<var name="owner_name" type="text">
+            <title xml:lang="ko">- 대표이사 이름</title>
+            <title xml:lang="en">- owner name</title>
+            <description xml:lang="ko">대표이사 이름를 입력해 주세요</description>
+            <description xml:lang="en">Please input the owner name</description>
+		</var>
+		<var name="address" type="text">
+            <title xml:lang="ko">- 주소</title>
+            <title xml:lang="en">- address</title>
+            <description xml:lang="ko">주소를 입력해 주세요</description>
+            <description xml:lang="en">Please input the address.</description>
+		</var>
+		<var name="tel" type="text">
+            <title xml:lang="ko">- 전화번호</title>
+            <title xml:lang="en">- telephone number</title>
+            <description xml:lang="ko">전화번호를 입력해 주세요</description>
+            <description xml:lang="en">Please input the phone number.</description>
+		</var>
+		<var name="fax" type="text">
+            <title xml:lang="ko">- 팩스번호</title>
+            <title xml:lang="en">- fax number</title>
+            <description xml:lang="ko">팩스번호를 입력해 주세요</description>
+            <description xml:lang="en">Please input the fax number.</description>
+		</var>
+		<var name="email" type="text">
+            <title xml:lang="ko">- 이메일주소</title>
+            <title xml:lang="en">- email address</title>
+            <description xml:lang="ko">이메일주소를 입력해 주세요</description>
+            <description xml:lang="en">Please input the email address.</description>
+		</var>
+		<var name="reg_number" type="text">
+            <title xml:lang="ko">- 사업자등록번호</title>
+            <title xml:lang="en">- business license.</title>
+            <description xml:lang="ko">사업자등록번호를 입력해 주세요</description>
+            <description xml:lang="en">Please input business license.</description>
+		</var>
+		<var name="reg_number2" type="text">
+            <title xml:lang="ko">- 통신판매업 신고번호</title>
+            <title xml:lang="en">- online marketing business license</title>
+            <description xml:lang="ko">통신판매업 신고번호를 입력해 주세요</description>
+            <description xml:lang="en">Please input the online marketing business license</description>
+		</var>
+		
+		<var name="foot_familysite" type="select" default="no">
+            <title xml:lang="ko">(3) 푸터 패밀리사이트 사용여부</title>
+            <title xml:lang="en">(3) select footer familysite</title>
+            <description xml:lang="ko">푸터 패밀리사이트 사용여부를 선택하세요(패밀리사이트를 사용하지 않으면 sns 링크가 사용,sns를 사용시에는 다음의
+			 facebook/twitter/미투데이의 링크를 입력하세요.)</description>
+            <description xml:lang="en">select use family site</description>
+			<options value="no">
+				<title xml:lang="ko">사용안함</title>
+				<title xml:lang="en">use not</title>
+			</options>
+			<options value="yes">
+				<title xml:lang="ko">사용</title>
+				<title xml:lang="en">use</title>
+			</options>
+		</var>
+	
+		<var name="sns_metoday" type="text">
+            <title xml:lang="ko">(4)푸터사이트맵SNS 링크: 미투데이</title>
+            <title xml:lang="en">(4) footer Quick SNS Link : metoday</title>
+            <description xml:lang="ko">미투데이 링크를 입력하세요,위의 -패밀리 사이트 사용여부에서 [사용안함]으로 설정시 입력하세요</description>
+            <description xml:lang="en">Please input the metoday link. Input when you choose [not use] in family site option</description>
+		</var>
+		<var name="sns_facebook" type="text">
+            <title xml:lang="ko"> -SNS 링크: 페이스북</title>
+            <title xml:lang="en"> - SNS Link : facebook</title>
+            <description xml:lang="ko">페이스북 링크를 입력하세요,위의 -패밀리 사이트 사용여부에서 [사용안함]으로 설정시 입력하세요</description>
+            <description xml:lang="en">Please input the facebook link. Input when you choose [not use] in family site option</description>
+		</var>
+		<var name="sns_twitter" type="text">
+            <title xml:lang="ko"> -SNS 링크: 트위터</title>
+            <title xml:lang="en"> - SNS Link : twitter</title>
+            <description xml:lang="ko">트위터 링크를 입력하세요,위의 -패밀리 사이트 사용여부에서 [사용안함]으로 설정시 입력하세요</description>
+            <description xml:lang="en">Please input the twitter link. Input when you choose [not use] in family site option</description>
+		</var>
+		</group>
+  </extra_vars>
+
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">Main 메뉴</title>
+            <title xml:lang="jp">上段用メニュー</title>
+            <title xml:lang="zh-CN">主菜单</title>
+            <title xml:lang="zh-TW">主選單</title>
+            <title xml:lang="en">main menu</title>
+            <title xml:lang="ge">main Menü</title>
+            <title xml:lang="ru">Верхнее меню</title>
+            <title xml:lang="es">Menú Principal</title>
+	    	<title xml:lang="vi">Menu trên</title>
+            <title xml:lang="tr">Ana Menü</title>
+        </menu>
+		<menu name="quick_menu1" maxdepth="1" default="true">
+            <title xml:lang="ko">하단 사이트맵1</title>
+            <title xml:lang="jp">footer QUICK menu1</title>
+            <title xml:lang="zh-CN">footer QUICK menu1</title>
+            <title xml:lang="zh-TW">footer Quick menu1</title>
+            <title xml:lang="en">footer Quick menu1</title>
+            <title xml:lang="ge">footer Quick menu1</title>
+            <title xml:lang="ru">footer Quick menu1</title>
+            <title xml:lang="es">footer Quick menu1</title>
+	    	<title xml:lang="vi">footer Quick menu1</title>
+            <title xml:lang="tr">footer Quick menu1</title>
+        </menu>
+		<menu name="quick_menu2" maxdepth="1" default="true">
+            <title xml:lang="ko">하단 사이트맵2</title>
+            <title xml:lang="jp">footer QUICK menu2</title>
+            <title xml:lang="zh-CN">footer QUICK menu2</title>
+            <title xml:lang="zh-TW">footer Quick menu2</title>
+            <title xml:lang="en">footer Quick menu2</title>
+            <title xml:lang="ge">footer Quick menu2</title>
+            <title xml:lang="ru">footer Quick menu2</title>
+            <title xml:lang="es">footer Quick menu2</title>
+	    	<title xml:lang="vi">footer Quick menu2</title>
+            <title xml:lang="tr">footer Quick menu2</title>
+        </menu>
+			
+		<menu name="foot_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">Footer 메뉴</title>
+            <title xml:lang="jp">footer menu</title>
+            <title xml:lang="zh-CN">footer menu</title>
+            <title xml:lang="zh-TW">footer menu</title>
+            <title xml:lang="en">footer menu</title>
+        </menu>
+		
+		<menu name="family_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">Familysite 메뉴</title>
+            <title xml:lang="en">family site menu</title>
+        </menu>
+    </menus>
+</layout>

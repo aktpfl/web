@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">eond Rosso</title>
+	<description xml:lang="ko">이온디 갤러리용 레이아웃 입니다. HTML5/CSS3/부트스트랩을 활용한 반응형 레이아웃입니다. 질문은 이온디 홈페이지 질문 게시판에 올려주세요. </description>
+	<version>0.2</version>
+	<author email_address="eond@eond.com" link="http://eond.com" date="2013. 3. 06~08">
+	<name xml:lang="ko">정낙훈 (http://eond.com)</name>
+	</author>
+    <extra_vars>
+	<!--
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="jp">ロゴのイメージ</title>
+            <title xml:lang="zh-CN">LOGO图片</title>
+            <title xml:lang="en">Logo image</title>
+            <title xml:lang="es">Imagen de logotipo</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 100px인 투명이미지가 가장 어울립니다)</description>
+            <description xml:lang="jp">レイアウトの上端に表示されるロゴイメージを入力してください。 (縦幅が100pxである透明イメージが最も合います。)</description>
+            <description xml:lang="zh-CN">请输入显示在布局顶部的LOGO图片。(高度为100px的透明图片为适。)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (Transparent image with height of 100px is recommended.)</description>
+            <description xml:lang="es">Cargar archivo para logotipo. (Mejor imagen transparente con altura de 100px)</description>
+        </var>-->
+		<var name="htitle" type="text">
+            <title xml:lang="ko">타이틀</title>
+			<title xml:lang="en">title</title>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="jp">ホームページ URL</title>
+            <title xml:lang="zh-CN">网站 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <title xml:lang="es">URL de logotipo</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホームページのURLを入力してください。</description>
+            <description xml:lang="zh-CN">点击网站LOGO时要移动的页面URL。</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+            <description xml:lang="ko">Escribe URL para mover cuando los usuarios haga clic en logotipo.</description>
+        </var>
+		<var name="twitter" type="text">
+            <title xml:lang="ko">Twitter URL</title>
+            <title xml:lang="en">Twitter URL</title>
+            <description xml:lang="ko">트위터 주소를 입력하세요.</description>
+            <description xml:lang="en">Please input your twitter address.</description>
+        </var>
+        <var name="facebook" type="text">
+            <title xml:lang="ko">Facebook URL</title>
+            <title xml:lang="en">Facebook URL</title>
+            <description xml:lang="ko">페이스북 주소를 입력하세요.</description>
+            <description xml:lang="en">Please input your facebook address.</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">기본 메뉴</title>
+            <title xml:lang="en">Default Menu</title>
+            <maxdepth>4</maxdepth>
+        </menu>
+    </menus>
+</layout>
+<!--
+<load target="css/white.css" cond="$layout_info->colorset=='white'" />
+<load target="css/black.css" cond="$layout_info->colorset=='black'" />
+<load target="css/gray.css" cond="$layout_info->colorset=='gray'" />
+-->

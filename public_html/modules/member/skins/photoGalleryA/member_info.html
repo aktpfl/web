@@ -1,0 +1,144 @@
+<!--#include("./common_header.html")-->
+
+
+
+<div class="title_01_01">
+	<h3><img src="img/member/info_title01_01.gif" alt="계정등록" /></h3>
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <th><div>{$lang->user_name}</div></th>
+        <td class="wide"><div class="inputbgstyle">{htmlspecialchars($member_info->user_name)}</div></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->nick_name}</div></th>
+        <td><div class="inputbgstyle">{htmlspecialchars($member_info->nick_name)}</div></td>
+    </tr>
+    <!--@if($member_info->profile_image->src)-->
+    <tr>
+        <th><div>{$lang->profile_image}</div></th>
+        <td><div class="photobgstyle"><img src="{$member_info->profile_image->src}" border="0" alt="profile_image" /></div></td>
+    </tr>
+    <!--@end-->
+</table>
+</div>
+<div class="title_01_02">
+		<h3><img src="img/member/info_title01_02.gif" alt="회원정보입력" /></h3>
+    <table cellspacing="0" class="rowTable">
+    <!--@if($member_info->image_name->src)-->
+    <tr>
+        <th><div>{$lang->image_name}</div></th>
+        <td><div class="inputbgstyle"><img src="{$member_info->image_name->src}" border="0" alt="image_name" /></div></td>
+    </tr>
+    <!--@end-->
+    <!--@if($member_info->image_mark->src)-->
+    <tr>
+        <th><div>{$lang->image_mark}</div></th>
+        <td><div class="inputbgstyle"><img src="{$member_info->image_mark->src}" border="0" alt="image_mark" /></div></td>
+    </tr>
+    <!--@end-->
+    <tr>
+        <th><div>{$lang->homepage}</div></th>
+        <td><div class="inputbgstyle"><!--@if($member_info->homepage)--><a href="{htmlspecialchars($member_info->homepage)}" onclick="window.open(this.href); return false;">{htmlspecialchars($member_info->homepage)}</a><!--@else-->&nbsp;<!--@end--></div></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->blog}</div></th>
+        <td><div class="inputbgstyle"><!--@if($member_info->blog)--><a href="{htmlspecialchars($member_info->blog)}" onclick="window.open(this.href); return false;">{htmlspecialchars($member_info->blog)}</a><!--@else-->&nbsp;<!--@end--></div></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->birthday}</div></th>
+        <td><div class="inputbgstyle"><!--@if($member_info->birthday)-->{zdate($member_info->birthday,"Y-m-d")}<!--@else-->&nbsp;<!--@end--></div></td>
+    </tr>
+    <!--@if($member_info->signature)-->
+    <tr>
+        <th><div>{$lang->signature}</div></th>
+        <td><div class="photobgstyle">{$member_info->signature}</div></td>
+    </tr>
+    <!--@end-->
+    <tr>
+        <th><div>{$lang->group}</div></th>
+        <td><div class="inputbgstyle"><!--@foreach($member_info->group_list as $key => $val)-->{$val} <!--@end--></div></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->signup_date}</div></th>
+        <td><div class="inputbgstyle">{zdate($member_info->regdate,"Y-m-d H:i")}</div></td>
+    </tr>
+
+    <!--@if($member_info->member_srl == $logged_info->member_srl || $logged_info->is_admin == 'Y' )-->
+    <tr>
+        <th><div>{$lang->last_login}</div></th>
+        <td><div class="inputbgstyle">{zdate($member_info->last_login,"Y-m-d H:i")}</div></td>
+    </tr>
+    <!--@end-->
+
+    <!--@if($member_config->enable_openid=="Y")-->
+    <!--@if(sizeof($openids) > 0)-->
+    <tr>
+        <th colspan="2" class="title"><div>{$lang->openid} </div></th>
+    </tr>
+    <!--@foreach($openids as $openid)-->
+    <tr>
+        <th><div>{$lang->openid}</div></th>
+        <td><div class="inputbgstyle"><a href="{$openid->bookmarklet}">{$openid->openid}</a></div></td>
+    </tr>
+    <!--@end-->
+    <!--@end-->
+    <!--@end-->
+
+    <!--@if($extend_form_list)-->
+    <tr>
+        <th class="title" colspan="2"><div>{$lang->member_extend_info}</div></th>
+    </tr>
+    {@ $dummy_chk = 0 }
+    <!--@foreach($extend_form_list as $key => $val)-->
+    <tr <!--@if($dummy_chk==0)-->class="first-child" {@ $dummy_chk = 1; }<!--@end-->>
+        <th>
+            <div>
+                {htmlspecialchars($val->column_title)}
+            </div>
+        </th>
+        <td>
+            <!--@if($val->is_private)-->
+                <span class="privateItem">{$lang->private}</span>
+            <!--@else--> 
+                <!--@if($val->column_type=='tel' && $val->value[0] && $val->value[1] && $val->value[2])-->
+                    {htmlspecialchars($val->value[0])} 
+                        <!--@if($val->value[1])-->-<!--@end-->
+                    {htmlspecialchars($val->value[1])} 
+                        <!--@if($val->value[2])-->-<!--@end-->
+                    {htmlspecialchars($val->value[2])}
+                <!--@elseif($val->column_type=='kr_zip')-->
+                    {htmlspecialchars($val->value[0])}<!--@if($val->value[1]&&$val->value[0])--><br /><!--@end-->{htmlspecialchars($val->value[1])}
+                <!--@elseif($val->column_type=='checkbox' && is_array($val->value))-->
+                    {htmlspecialchars(implode(", ",$val->value))}&nbsp;
+                <!--@elseif($val->column_type=='date' && $val->value)-->
+                    {zdate($val->value, "Y-m-d")}&nbsp;
+                <!--@else-->
+                    {nl2br(htmlspecialchars($val->value))}&nbsp;
+                <!--@end-->
+            <!--@end--> 
+        </td>
+    </tr>
+    <!--@end-->
+    <!--@end-->
+</table>
+</div>
+
+<div class="title_01_02">
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <th colspan="2" class="button">
+            <!--@if($member_info->member_srl == $logged_info->member_srl)-->
+            <a href="{getUrl('act','dispMemberModifyInfo','member_srl','')}"><img src="img/member/member_btn_infoedit.gif" alt="회원 정보 수정" /></a>
+                <!--@if($logged_info->is_openid)-->
+                    <a href="{getUrl('act','dispMemberOpenIDLeave','member_srl','')}"><img src="img/member/member_btn_secessionedit.gif" alt="탈퇴" /></a>
+                <!--@else-->
+                    <a href="{getUrl('act','dispMemberModifyPassword','member_srl','')}"><img src="img/member/member_btn_passwordedit.gif" alt="비밀번호 변경" /></a>
+                    <a href="{getUrl('act','dispMemberLeave','member_srl','')}"><img src="img/member/member_btn_secessionedit.gif" alt="탈퇴" /></a>
+                <!--@end-->
+            <!--@end-->
+            <a href="{getUrl('act','','member_srl','')}" ><img src="img/member/member_btn_back.gif" alt="돌아가기" /></a>
+    </tr>
+    </table>
+</div>
+
+<!--#include("./common_footer.html")-->

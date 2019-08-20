@@ -1,0 +1,11 @@
+<filter name="login_modal" module="member" act="procMemberLogin">
+  <form>
+    <node target="user_id_modal" required="true" filter="user_id"/>
+    <node target="password_modal" required="true" />
+  </form>
+ <parameter />
+  <response callback_func="completeLogin">
+    <tag name="error" />
+    <tag name="message" />
+  </response>
+</filter>
